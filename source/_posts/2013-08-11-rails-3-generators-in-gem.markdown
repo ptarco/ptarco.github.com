@@ -6,6 +6,7 @@ comments: true
 categories: 
 ---
 ___
+
 <!--more-->
 ###This is the folders structure in a gem.
 
@@ -73,5 +74,4 @@ def self.next_migration_number(path)
       ActiveRecord::Migration.next_migration_number(@migration_number)
 end
 {% endcodeblock %}
-
 ___
