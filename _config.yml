@@ -2,10 +2,11 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://ptarco.github.io
+title: Paulo de Tarço
+titleHome: I'm Paulo de Tarço, passionate about the web and code design.
+subtitle: Ruby,Php,Javascript,Android.
+author: Paulo de Tarço
 simple_search: http://google.com/search
 description:
 
@@ -19,7 +20,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email:
+email: paulopjazz@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -63,13 +64,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user:
+github_user: ptarco
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: _ptarco
 twitter_tweet_button: true
 
 # Google +1
@@ -78,7 +79,7 @@ google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user:
+googleplus_user: ptarco
 googleplus_hidden: false
 
 # Pinboard
