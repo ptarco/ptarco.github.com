@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo de Tarço]]></title>
   <link href="http://ptarco.github.io/atom.xml" rel="self"/>
   <link href="http://ptarco.github.io/"/>
-  <updated>2013-08-11T18:25:25-03:00</updated>
+  <updated>2013-08-11T18:56:16-03:00</updated>
   <id>http://ptarco.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -239,7 +239,9 @@ Push again to github</p>
     <link href="http://ptarco.github.io/blog/2013/08/11/rails-3-generators-in-gem/"/>
     <updated>2013-08-11T18:02:00-03:00</updated>
     <id>http://ptarco.github.io/blog/2013/08/11/rails-3-generators-in-gem</id>
-    <content type="html"><![CDATA[<!--more-->
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
 
 
 <h3>This is the folders structure in a gem.</h3>
@@ -341,6 +343,8 @@ Push again to github</p>
 </span><span class='line'>      ActiveRecord::Migration.next_migration_number(@migration_number)
 </span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
 
+
+<hr />
 ]]></content>
   </entry>
   
