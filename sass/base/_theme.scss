@@ -20,7 +20,9 @@
 }
 #hero-inner {
   font-family: 'Cantarell', sans-serif;
-  margin-top: 50px;
+  // margin-top: 50px;
+  color:#FFF;
+  text-shadow: black 0.2em 0.2em 0.3em;
 }
 #hero-inner h1 {
   font-size: 60px;
@@ -224,3 +226,6 @@ p {
 .recent_posts {
   list-style-type: disc;
 }
+a{color:#981324;}
+
+a:hover{color:#750c19;}
