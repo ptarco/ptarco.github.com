@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Rails 3 generators in gem - Paulo de Tarço</title>
+  <title>Gem previsao-clima-tempo - Paulo de Tarço</title>
   <meta name="author" content="Paulo de Tarço">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,25 +13,25 @@
   
     
   
-  <meta name="description" content=" Rails 3 generators in gem ">
-  <meta name="keywords" content="rails 3, rails generators, gem , github, rails generators gem"> 
+  <meta name="description" content=" Gem Communication with Clima Tempo accessing information about the weather of Brazil. ">
+  <meta name="keywords" content="clima tempo, clima-tempo, gem clima tempo, gem clima-tempo, previsao tempo, previsao-clima-tempo, gem"> 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ptarco.github.io/blog/2013/08/11/rails-3-generators-in-gem/">
+  <link rel="canonical" href="http://ptarco.github.io/blog/2013/08/17/gem-previsao-clima-tempo/">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Paulo de Tarço" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Paulo de Tarço" />
-  <meta name="og:title" content="Rails 3 generators in gem" />
-  <meta name="og:description" content=" Rails 3 generators in gem " />
-  <meta name="og:url" content="http://ptarco.github.io/blog/2013/08/11/rails-3-generators-in-gem/"/>
-  <meta name="url" content="http://ptarco.github.io/blog/2013/08/11/rails-3-generators-in-gem/">
+  <meta name="og:title" content="Gem previsao-clima-tempo" />
+  <meta name="og:description" content=" Gem Communication with Clima Tempo accessing information about the weather of Brazil. " />
+  <meta name="og:url" content="http://ptarco.github.io/blog/2013/08/17/gem-previsao-clima-tempo/"/>
+  <meta name="url" content="http://ptarco.github.io/blog/2013/08/17/gem-previsao-clima-tempo/">
   
   <meta name="subject" content=""/>
   <meta name="category" content=""/>
@@ -76,7 +76,7 @@
 
   <header>
     
-      <h1 class="entry-title">Rails 3 Generators in Gem</h1>
+      <h1 class="entry-title">Gem Previsao-clima-tempo</h1>
     
     
       <p class="meta">
@@ -101,7 +101,7 @@
   
 
 
-<time datetime="2013-08-11T18:02:00-03:00" pubdate data-updated="true">Aug 11<span>th</span>, 2013</time> - 
+<time datetime="2013-08-17T00:00:00-03:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time> - 
         
 
 
@@ -116,7 +116,87 @@
 <!--more-->
 
 
-<h3>This is the folders structure in a gem.</h3>
+<h4>VERSION = &ldquo;0.1.4&rdquo;</h4>
+
+<p>Communication with Clima Tempo accessing information about the weather of Brazil.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application&rsquo;s Gemfile:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'previsao-clima-tempo'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then execute:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or install it yourself as:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem install previsao-clima-tempo</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Usage</h2>
+
+<h3>From Webservice</h3>
+
+<h5>.new</h5>
+
+<p>Instantiating a object.The city code should be informed.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156')</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.now</h5>
+
+<p>Returns an object PrevisaoDia with information from the current day.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').now</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.tomorrow</h5>
+
+<p>Returns an object PrevisaoDia with information the next day.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').tomorrow</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.days</h5>
+
+<p>Returns a collection of objects PrevisaoDia with information of days referenced.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').days(13) maximum of 13 days from the current day</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.day</h5>
+
+<p>Returns an object PrevisaoDia with information the day referenced.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').day(date)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>From Page</h3>
+
+<h4>(contains more information than is extracted from the webservice)</h4>
+
+<h5>.nowFromPage</h5>
+
+<p>Returns a hash of condtions of weather from page</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').nowFromPage</span></code></pre></td></tr></table></div></figure>
+
+
+<p>return:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -124,15 +204,31 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>lib
-</span><span class='line'>  - generators
-</span><span class='line'>    - gemname
-</span><span class='line'>      install_generator.rb
-</span><span class='line'>      - templates
-</span><span class='line'>        (template files)</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>      :last_update: 18:00
+</span><span class='line'>      :wind:
+</span><span class='line'>        :velocity: 3 Km/h
+</span><span class='line'>        :direction: Su-sudeste
+</span><span class='line'>      :moisture: 91%
+</span><span class='line'>      :condition: Poucas nuvens
+</span><span class='line'>      :pression: 1022 hPa
+</span><span class='line'>      :temperature: 13ºC  
+</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Install Generator</h3>
+<h5>.fullFromPage</h5>
+
+<p>Returns a hash of condtions of weather whith 5 days from page.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').fullFromPage</span></code></pre></td></tr></table></div></figure>
+
+
+<p>return:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -154,29 +250,44 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>require 'rails/generators'
-</span><span class='line'>
-</span><span class='line'>module ModuleName
-</span><span class='line'>  module Generators
-</span><span class='line'>    class InstallGenerator &lt; Rails::Generators::NamedBase
-</span><span class='line'>      include Rails::Generators::Migration
-</span><span class='line'>      
-</span><span class='line'>      source_root File.expand_path("../templates", __FILE__)
-</span><span class='line'>      
-</span><span class='line'>      generators...
-</span><span class='line'>      
-</span><span class='line'>      def self.next_migration_number(path)
-</span><span class='line'>          @migration_number = current_migration_number(path) + 1
-</span><span class='line'>          ActiveRecord::Migration.next_migration_number(@migration_number)
-</span><span class='line'>      end
-</span><span class='line'>  
-</span><span class='line'>    end
-</span><span class='line'>   
-</span><span class='line'>  end
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>      1:
+</span><span class='line'>        :last_update: 19:00
+</span><span class='line'>        :date: Sábado, 17/08/2013
+</span><span class='line'>        :condition: Sol com muitas nuvens durante o dia e períodos de céu nublado. Noite
+</span><span class='line'>          com muitas nuvens.
+</span><span class='line'>        :wind:
+</span><span class='line'>          :velocity: 6km/h
+</span><span class='line'>          :direction: Su-sudeste
+</span><span class='line'>        :probability_of_precipitation:
+</span><span class='line'>          :volume: 0mm
+</span><span class='line'>          :percentage: 0%
+</span><span class='line'>        :moisture_relative_complete:
+</span><span class='line'>          :max: 100%
+</span><span class='line'>          :min: 49%
+</span><span class='line'>        :temperature:
+</span><span class='line'>          :max: 16º
+</span><span class='line'>          :min: 7º
+</span><span class='line'>        :uv: Alto
+</span><span class='line'>        :sunrise: 06h13
+</span><span class='line'>        :sunset: 17h36
+</span><span class='line'>      2: ...
+</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Generators&hellip;</h3>
+<h5>.trendsFromPage</h5>
+
+<p>Returns a hash of condtions of weather whith 5 days from page.
+If today is 16-12-2013 returns 21,22,23,24,25 trends.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').trendsFromPage</span></code></pre></td></tr></table></div></figure>
+
+
+<p>return:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -186,34 +297,22 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>def generators
-</span><span class='line'>           
-</span><span class='line'>    generate("controller" , "nameOfController")
-</span><span class='line'>    
-</span><span class='line'>    copy_file "fileWantYouCopy.rb"   , "app/models/destiniAndNameToCopiedFile.rb"
-</span><span class='line'>    
-</span><span class='line'>    migration_template("modelOfMigrate.rb"  , "db/migrate/modelOfMigrateDestini.rb")
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>migration_template</h3>
-
-<p>You need add this include to use migration_template</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>include Rails::Generators::Migration</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You need to implement next_migration_number</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>def self.next_migration_number(path)
-</span><span class='line'>      @migration_number = current_migration_number(path) + 1
-</span><span class='line'>      ActiveRecord::Migration.next_migration_number(@migration_number)
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>      1:
+</span><span class='line'>        :date: Quinta-Feira, 22/08/2013
+</span><span class='line'>        :condition: Sol com algumas nuvens. Não chove.
+</span><span class='line'>        :probability_of_precipitation:
+</span><span class='line'>          :volume: 0mm
+</span><span class='line'>          :percentage: 0%
+</span><span class='line'>        :temperature:
+</span><span class='line'>          :max: 23º
+</span><span class='line'>          :min: 7º
+</span><span class='line'>      2: 
+</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
 
 
 <hr />
@@ -243,7 +342,7 @@
   
 
 
-<time datetime="2013-08-11T18:02:00-03:00" pubdate data-updated="true">Aug 11<span>th</span>, 2013</time> - 
+<time datetime="2013-08-17T00:00:00-03:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time> - 
       
 
 
@@ -251,7 +350,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarco.github.io/blog/2013/08/11/rails-3-generators-in-gem/" data-via="_ptarco" data-counturl="http://ptarco.github.io/blog/2013/08/11/rails-3-generators-in-gem/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarco.github.io/blog/2013/08/17/gem-previsao-clima-tempo/" data-via="_ptarco" data-counturl="http://ptarco.github.io/blog/2013/08/17/gem-previsao-clima-tempo/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -263,8 +362,8 @@
 
     
     
+      <a class="pull-left" href="/blog/2013/08/11/blog-plus-octopress-plus-github/" title="Previous Post: Blog + Octopress + GitHub">&laquo; Blog + Octopress + GitHub</a>
     
-      <a class="pull-right" href="/blog/2013/08/11/blog-plus-octopress-plus-github/" title="Next Post: Blog + Octopress + GitHub">Blog + Octopress + GitHub &raquo;</a>
     
   </footer>
 
