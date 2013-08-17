@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo de Tarço]]></title>
   <link href="http://ptarco.github.io/atom.xml" rel="self"/>
   <link href="http://ptarco.github.io/"/>
-  <updated>2013-08-17T00:54:45-03:00</updated>
+  <updated>2013-08-17T12:45:53-03:00</updated>
   <id>http://ptarco.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Gem agendare-schedule]]></title>
+    <link href="http://ptarco.github.io/blog/2013/08/17/gem-agendare-schedule/"/>
+    <updated>2013-08-17T12:22:00-03:00</updated>
+    <id>http://ptarco.github.io/blog/2013/08/17/gem-agendare-schedule</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h4>VERSION = &ldquo;0.0.2&rdquo;</h4>
+
+<p>The basic structure to implement schedule project. You have 3 objects to implement yours views, because the logic is implemented in this gem.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application&rsquo;s Gemfile:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'agendare-schedule'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then execute:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Usage</h2>
+
+<p>Create controlllers.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails  generate agendare:install controllers</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create models.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails  generate agendare:install models</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create migrations.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails  generate agendare:install migrations</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Import the structure to database.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake db:migrate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add this lines in your config/routes.rb</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>resources :schedules
+</span><span class='line'>   resources :scheduleds
+</span><span class='line'>   resources :users</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gem previsao-clima-tempo]]></title>
