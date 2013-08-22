@@ -1,31 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://ptarco.github.io/blog/2013/08/11/rails-3-generators-in-gem/</loc>
-        <lastmod>2013-08-12T18:44:04-03:00</lastmod>
+        <loc>http://ptarcode.github.io/blog/2013/08/11/rails-3-generators-in-gem/</loc>
+        <lastmod>2013-08-21T23:35:55-03:00</lastmod>
     </url>
     <url>
-        <loc>http://ptarco.github.io/blog/2013/08/11/blog-plus-octopress-plus-github/</loc>
-        <lastmod>2013-08-12T18:42:27-03:00</lastmod>
+        <loc>http://ptarcode.github.io/blog/2013/08/11/blog-plus-octopress-plus-github/</loc>
+        <lastmod>2013-08-21T23:34:38-03:00</lastmod>
     </url>
     <url>
-        <loc>http://ptarco.github.io/blog/2013/08/17/gem-previsao-clima-tempo/</loc>
-        <lastmod>2013-08-17T00:51:35-03:00</lastmod>
+        <loc>http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/</loc>
+        <lastmod>2013-08-21T23:36:27-03:00</lastmod>
     </url>
     <url>
-        <loc>http://ptarco.github.io/blog/2013/08/17/gem-agendare-schedule/</loc>
-        <lastmod>2013-08-17T12:36:49-03:00</lastmod>
+        <loc>http://ptarcode.github.io/blog/2013/08/17/gem-agendare-schedule/</loc>
+        <lastmod>2013-08-21T23:36:15-03:00</lastmod>
     </url>
     <url>
-        <loc>http://ptarco.github.io/blog/2013/08/21/blocks-procs-e-lambdas/</loc>
-        <lastmod>2013-08-21T23:25:54-03:00</lastmod>
+        <loc>http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/</loc>
+        <lastmod>2013-08-21T23:34:04-03:00</lastmod>
     </url>
     <url>
-        <loc>http://ptarco.github.io/blog/archives/</loc>
-        <lastmod>2013-08-21T23:25:54-03:00</lastmod>
+        <loc>http://ptarcode.github.io/blog/archives/</loc>
+        <lastmod>2013-08-21T23:36:27-03:00</lastmod>
     </url>
     <url>
-        <loc>http://ptarco.github.io/</loc>
-        <lastmod>2013-08-21T23:25:54-03:00</lastmod>
+        <loc>http://ptarcode.github.io/</loc>
+        <lastmod>2013-08-21T23:36:27-03:00</lastmod>
     </url>
 </urlset>
