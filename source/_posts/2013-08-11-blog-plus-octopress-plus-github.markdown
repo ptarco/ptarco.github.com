@@ -3,7 +3,7 @@ layout: post
 title: "Blog + Octopress + GitHub"
 date: 2013-08-11 18:04
 comments: true
-categories: 
+categories: [Octopress, GitHub]
 
 keywords: "blog, octopress, this, GitHub, Blog + Octopress + GitHub"
 description: "Blog + Octopress + GitHub"
