@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Gem agendare-schedule - Paulo de Tarço</title>
+  <title>Blocks, Procs e Lambdas - Paulo de Tarço</title>
   <meta name="author" content="Paulo de Tarço">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,25 +13,25 @@
   
     
   
-  <meta name="description" content=" The basic structure to implement schedule project. You have 3 objects to implement yours views, because the logic is implemented in this gem. ">
-  <meta name="keywords" content="agendare schedule, agendare-schedule, gem agendare schedule, gem agendare-schedule, agendar, gem schedule, gem"> 
+  <meta name="description" content=" ">
+  <meta name="keywords" content="Paulo de Tarço, Paulo de Tarco, <ptarco>, ptarco, <ptarcode>, ptarcode, tarço, tarso, ptarso, tarco, tarcode, ruby, ruby on rails, ruby rails, rails, ptarcode.github.io, ptarcode.github"> 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ptarco.github.io/blog/2013/08/17/gem-agendare-schedule/">
+  <link rel="canonical" href="http://ptarco.github.io/blog/2013/08/21/blocks-procs-e-lambdas/">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Paulo de Tarço" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Paulo de Tarço" />
-  <meta name="og:title" content="Gem agendare-schedule" />
-  <meta name="og:description" content=" The basic structure to implement schedule project. You have 3 objects to implement yours views, because the logic is implemented in this gem. " />
-  <meta name="og:url" content="http://ptarco.github.io/blog/2013/08/17/gem-agendare-schedule/"/>
-  <meta name="url" content="http://ptarco.github.io/blog/2013/08/17/gem-agendare-schedule/">
+  <meta name="og:title" content="Blocks, Procs e Lambdas" />
+  <meta name="og:description" content=" " />
+  <meta name="og:url" content="http://ptarco.github.io/blog/2013/08/21/blocks-procs-e-lambdas/"/>
+  <meta name="url" content="http://ptarco.github.io/blog/2013/08/21/blocks-procs-e-lambdas/">
   
   <meta name="subject" content=""/>
   <meta name="category" content=""/>
@@ -76,7 +76,7 @@
 
   <header>
     
-      <h1 class="entry-title">Gem Agendare-schedule</h1>
+      <h1 class="entry-title">Blocks, Procs E Lambdas</h1>
     
     
       <p class="meta">
@@ -101,7 +101,7 @@
   
 
 
-<time datetime="2013-08-17T12:22:00-03:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time> - 
+<time datetime="2013-08-21T22:35:00-03:00" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time> - 
         
 
 
@@ -116,58 +116,136 @@
 <!--more-->
 
 
-<h4>VERSION = &ldquo;0.0.2&rdquo;</h4>
+<h2>Blocks</h2>
 
-<p>The basic structure to implement schedule project. You have 3 objects to implement yours views, because the logic is implemented in this gem.</p>
-
-<h2>Installation</h2>
-
-<p>Add this line to your application&rsquo;s Gemfile:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'agendare-schedule'</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And then execute:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Usage</h2>
-
-<p>Create controlllers.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rails  generate agendare:install controllers</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Create models.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rails  generate agendare:install models</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Create migrations.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rails  generate agendare:install migrations</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Import the structure to database.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake db:migrate</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Add this lines in your config/routes.rb</p>
+<p>Writing methods that can accept blocks is simple. There&rsquo;s no special syntax needed, you can simply write the method as you would any other. To call any block passed to the method, use the yield keyword. Like any other method call, when you use the yield keyword you can leave it as it is and call the block without any parameters. Or, if you wish, you can add a parameter list as you would with a method call.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>resources :schedules
-</span><span class='line'>   resources :scheduleds
-</span><span class='line'>   resources :users</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def call_this_block
+</span><span class='line'>  yield
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>call_this_block { puts "tweet" }</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Optional Block</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Optional
+</span><span class='line'>  def initialize
+</span><span class='line'>     yield self if block_given?
+</span><span class='line'>  end
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Procs</h2>
+
+<p>Proc objects are blocks of code that have been bound to a set of local variables. Once bound, the code may be called in different contexts and still access those variables.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def gen_times(factor)
+</span><span class='line'>  return Proc.new {|n| n*factor }
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>times3 = gen_times(3)
+</span><span class='line'>times5 = gen_times(5)
+</span><span class='line'>
+</span><span class='line'>times3.call(12)               #=> 36
+</span><span class='line'>times5.call(5)                #=> 25
+</span><span class='line'>times3.call(times5.call(4))   #=> 60</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Lambdas</h2>
+
+<p>You may have heard of lambdas before. Perhaps you&rsquo;ve used them in other languages. Despite the fancy name, a lambda is just a function&hellip; peculiarly&hellip; without a name. They&rsquo;re anonymous, little functional spies sneaking into the rest of your code. Lambdas in Ruby are also objects, just like everything else! The last expression of a lambda is its return value, just like regular functions. As boring and familiar as that all sounds, it gives us a lot of power.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>my_proc = lambda { puts "tweet" }
+</span><span class='line'>my_proc.call # => tweet</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Multiple Lambdas</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Comment
+</span><span class='line'>  def post(
+</span><span class='line'>      if authenticate?(@user, @password)
+</span><span class='line'>          # submit the comment
+</span><span class='line'>          success
+</span><span class='line'>          success.call
+</span><span class='line'>      else
+</span><span class='line'>          error.call
+</span><span class='line'>      end
+</span><span class='line'>  end
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>comment   = Comment.new('Yeeeeeep!')
+</span><span class='line'>success = -> { puts "Sent!" }
+</span><span class='line'>error   = -> { raise 'Auth Error' }
+</span><span class='line'>comment.post(success, error)</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Lambda to Block</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>blablas = ["First", "Second"]
+</span><span class='line'>blablas.each do |blabla|
+</span><span class='line'>puts blabla                   #Lets try converting to a proc
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>blablas = ["First", "Second"]
+</span><span class='line'>printer = lambda { |blabla| puts blabla }
+</span><span class='line'>
+</span><span class='line'>blablas.each(&printer)       
+</span><span class='line'>
+</span><span class='line'>#‘&’ turns proc into block 
+</span><span class='line'>#because each expects a block, not a proc</span></code></pre></td></tr></table></div></figure>
 
 
 <hr />
@@ -197,7 +275,7 @@
   
 
 
-<time datetime="2013-08-17T12:22:00-03:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time> - 
+<time datetime="2013-08-21T22:35:00-03:00" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time> - 
       
 
 
@@ -205,7 +283,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarco.github.io/blog/2013/08/17/gem-agendare-schedule/" data-via="ptarcode" data-counturl="http://ptarco.github.io/blog/2013/08/17/gem-agendare-schedule/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarco.github.io/blog/2013/08/21/blocks-procs-e-lambdas/" data-via="ptarcode" data-counturl="http://ptarco.github.io/blog/2013/08/21/blocks-procs-e-lambdas/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -217,10 +295,8 @@
 
     
     
-      <a class="pull-left" href="/blog/2013/08/17/gem-previsao-clima-tempo/" title="Previous Post: Gem previsao-clima-tempo">&laquo; Gem previsao-clima-tempo</a>
+      <a class="pull-left" href="/blog/2013/08/17/gem-agendare-schedule/" title="Previous Post: Gem agendare-schedule">&laquo; Gem agendare-schedule</a>
     
-    
-      <a class="pull-right" href="/blog/2013/08/21/blocks-procs-e-lambdas/" title="Next Post: Blocks, Procs e Lambdas">Blocks, Procs e Lambdas &raquo;</a>
     
   </footer>
 
