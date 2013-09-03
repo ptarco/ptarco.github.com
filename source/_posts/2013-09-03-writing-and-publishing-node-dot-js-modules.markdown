@@ -13,7 +13,7 @@ description: "Writing and Publishing Node.js Modules"
 
 ## Write
 
-If you have one lib and you want share with the other programs, it's time to create a module. It's Very simple but you need known some rules.
+If you have one lib and you want share with the other programs, it's time to create a module. It's very simple but you need known some rules.
 
 ### Structure 
 
