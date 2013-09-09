@@ -9,6 +9,8 @@ description: "Clima tempo module for Node.js"
 ---
 
 ---
+<!--more-->
+
 ### version : 0.0.9
 Communication with Clima Tempo accessing information about the weather of Brazil.
 
