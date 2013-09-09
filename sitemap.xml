@@ -24,14 +24,18 @@
         <loc>
             http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/
         </loc>
-        <lastmod>2013-09-03T14:17:13-03:00</lastmod>
+        <lastmod>2013-09-05T00:04:56-03:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ptarcode.github.io/blog/2013/09/09/clima-tempo-module-for-node-dot-js/</loc>
+        <lastmod>2013-09-09T11:50:07-03:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/blog/archives/</loc>
-        <lastmod>2013-09-03T14:17:13-03:00</lastmod>
+        <lastmod>2013-09-09T11:50:07-03:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/</loc>
-        <lastmod>2013-09-03T14:17:13-03:00</lastmod>
+        <lastmod>2013-09-09T11:50:07-03:00</lastmod>
     </url>
 </urlset>
