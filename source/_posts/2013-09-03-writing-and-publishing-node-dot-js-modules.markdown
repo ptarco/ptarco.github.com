@@ -13,7 +13,7 @@ description: "Writing and Publishing Node.js Modules"
 
 ## Write
 
-If you have one lib and you want share with the other programs, it's time to create a module. It's very simple but you need known some rules.
+If you have a library and you want to share with the other programs, it's time to create a module. It's very simple but you have to known some rules.
 
 ### Structure 
 
@@ -36,16 +36,16 @@ If you have one lib and you want share with the other programs, it's time to cre
 This folder contains all the files responsible for the functionality of your module.
 
 #### node-modules
-This folder contains all the dependencies(other modules) used to implementation. This is created aotumaticaly when you install some moulde.
+This folder contains all the dependencies(other modules) used to implementation. This is created automatically when you install some modude.
 
 #### tests
-Contains all tests arquives tp testing your module.
+Contains all tests arquives to test your module.
 
 #### LICENSE
-Thisfile contains all informations about the license of module.
+This file contains all informations about the license of module.
 
 #### package.json
-This is the most important file allows see all information about this module, structure, owner e etc.
+This is the most important file, allows to see all information about this module, structure, owner e etc.
 
 {% codeblock %}
 {
@@ -104,7 +104,7 @@ This is a markdown file, contains all information how to use de module, version 
 ## Publish
 
 ### NPM REGISTRY
-First you need go to https://npmjs.org/signup and create account and user.
+First you have to go to https://npmjs.org/signup and create account and user.
 
 ### npm adduser
 Now you need add user to publish your module.
@@ -118,10 +118,10 @@ Email: example@node.com
 {% endcodeblock %}	
 
 ### npm publish
-Now you need to go to root of your module and use this command.
+Now you have to go to root of your module and use this command.
 
 {% codeblock %}
 npm publish
 {% endcodeblock %}
 
-Now your module is publish congratulations!!!! 
+Now your module was published and you can download from npm and install in other project. 
