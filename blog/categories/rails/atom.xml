@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | Paulo de Tarço]]></title>
   <link href="http://ptarcode.github.io/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://ptarcode.github.io/"/>
-  <updated>2013-09-09T11:55:25-03:00</updated>
+  <updated>2013-09-09T12:00:06-03:00</updated>
   <id>http://ptarcode.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -23,7 +23,7 @@
 <!--more-->
 
 
-<h4>VERSION = &ldquo;0.0.2&rdquo;</h4>
+<p><a href="http://badge.fury.io/rb/agendare-schedule"><img src="https://badge.fury.io/rb/agendare-schedule.png" alt="Gem Version" /></a></p>
 
 <p>The basic structure to implement schedule project. You have 3 objects to implement yours views, because the logic is implemented in this gem.</p>
 
@@ -131,7 +131,7 @@
 <!--more-->
 
 
-<h4>VERSION = &ldquo;0.1.4&rdquo;</h4>
+<p><a href="http://badge.fury.io/rb/previsao-clima-tempo"><img src="https://badge.fury.io/rb/previsao-clima-tempo.png" alt="Gem Version" /></a></p>
 
 <p>Communication with Clima Tempo accessing information about the weather of Brazil.</p>
 
