@@ -11,7 +11,8 @@ description: "Gem Communication with Clima Tempo accessing information about the
 
 
 <!--more-->
-####VERSION = "0.1.4"
+[![Gem Version](https://badge.fury.io/rb/previsao-clima-tempo.png)](http://badge.fury.io/rb/previsao-clima-tempo)
+
 Communication with Clima Tempo accessing information about the weather of Brazil.
 
 ## Installation
