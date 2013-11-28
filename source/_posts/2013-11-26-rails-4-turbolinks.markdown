@@ -11,7 +11,7 @@ description: "Rails 4 Turbolinks"
 ---
 <!--more-->
 
-### What is?
+### What is it?
 {% codeblock %}
 	gem 'turbolinks'
 {% endcodeblock %}
