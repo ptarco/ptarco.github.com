@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Writing and Publishing Node.js Modules - Paulo de Tarço</title>
+  <title>Rails 4 Turbolinks - Paulo de Tarço</title>
   <meta name="author" content="Paulo de Tarço">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,28 +13,28 @@
   
     
   
-  <meta name="description" content=" Writing and Publishing Node.js Modules ">
-  <meta name="keywords" content="node.js, node.js module, modulesnode.js, publish modules node.js, write modules node.js"> 
+  <meta name="description" content=" Rails 4 Turbolinks ">
+  <meta name="keywords" content="rails 4, rails turbolinks, turbolinks"> 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/">
+  <link rel="canonical" href="http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Paulo de Tarço" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Paulo de Tarço" />
-  <meta name="og:title" content="Writing and Publishing Node.js Modules" />
-  <meta name="og:description" content=" Writing and Publishing Node.js Modules " />
-  <meta name="og:url" content="http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/"/>
-  <meta name="url" content="http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/">
+  <meta name="og:title" content="Rails 4 Turbolinks" />
+  <meta name="og:description" content=" Rails 4 Turbolinks " />
+  <meta name="og:url" content="http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/"/>
+  <meta name="url" content="http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/">
   
-  <meta name="subject" content="Node.js"/>
-  <meta name="category" content="Node.js"/>
+  <meta name="subject" content="Rails"/>
+  <meta name="category" content="Rails"/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -76,7 +76,7 @@
 
   <header>
     
-      <h1 class="entry-title">Writing and Publishing Node.js Modules</h1>
+      <h1 class="entry-title">Rails 4 Turbolinks</h1>
     
     
       <p class="meta">
@@ -101,13 +101,13 @@
   
 
 
-<time datetime="2013-09-03T08:02:00-03:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2013</time> - 
+<time datetime="2013-11-26T23:36:00-02:00" pubdate data-updated="true">Nov 26<span>th</span>, 2013</time> - 
         
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/node-dot-js/'>Node.js</a>
+    <a class='category' href='/blog/categories/rails/'>Rails</a>
   
 </span>
 
@@ -125,11 +125,66 @@ posted in
 <!--more-->
 
 
-<h2>Write</h2>
+<h3>What is?</h3>
 
-<p>If you have a library and you want to share with the other programs, it&rsquo;s time to create a module. It&rsquo;s very simple but you have to known some rules.</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'turbolinks'</span></code></pre></td></tr></table></div></figure>
 
-<h3>Structure</h3>
+
+<p>&ldquo;This is a gem that works similar to pjax, but instead of worrying about what element on the page to replace, and tailoring the server-side response to fit, we replace the entire body. This means that you get the bulk of the speed benefits from pjax (no recompiling of the JavaScript or CSS) without having to tailor the server-side response. It just works.&rdquo;</p>
+
+<h3>PJAX</h3>
+
+<p>Uses AJAX and PushState to deliver a faster browsing experience by only loading and updating parts of the page HTML each page load. PushState makes it possible to add real permalinks, page titles, and a working back button so that your visitors won&rsquo;t be able to tell the difference between PJAX page load and ordinary full page loads.</p>
+
+<p><a href="http://www.youtube.com/watch?v=CKv9C2qUL-8" title="Title">Tutorial</a></p>
+
+<h3>Using the gem</h3>
+
+<p>Gemfile:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'turbolinks'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add this line on app/assets/javascripts/application.js:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//= require turbolinks</span></code></pre></td></tr></table></div></figure>
+
+
+<p>app/views/layouts/application.html.erb:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+</span><span class='line'>&lt;%= javascript_include_tag "application", "data-turbolinks-track" => true %></span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you wont use Turbolink in some link, you can manually exclude:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="/examples" data-no-turbolink>Examples&lt;/a></span></code></pre></td></tr></table></div></figure>
+
+
+<p>&ldquo;With Turbolinks pages will change without a full reload, so you can&rsquo;t rely on DOMContentLoaded or jQuery.ready() to trigger your code. Instead Turbolinks fires events on document to provide hooks into the lifecycle of the page.&rdquo;
+Runtime Dependencies coffee-rails, but if you want use javascript.You can manually download and compile the turbolinks.js.coffee to JavaScript.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ready = ->
+</span><span class='line'>
+</span><span class='line'>  ...your coffeescript goes here...
+</span><span class='line'>
+</span><span class='line'>$(document).ready(ready)
+</span><span class='line'>$(document).on('page:load', ready)</span></code></pre></td></tr></table></div></figure>
+
+
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -140,170 +195,24 @@ posted in
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>-example-module
-</span><span class='line'>  -lib
-</span><span class='line'>      example-modules.js
-</span><span class='line'>  -node-modules
-</span><span class='line'>      -example-dependencies
-</span><span class='line'>  -tests
-</span><span class='line'>      test-something.js
-</span><span class='line'>  LICENSE
-</span><span class='line'>  package.json
-</span><span class='line'>  README.md</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var ready;
+</span><span class='line'>ready = function() {
+</span><span class='line'>
+</span><span class='line'>  ...your javascript goes here...
+</span><span class='line'>
+</span><span class='line'>};
+</span><span class='line'>
+</span><span class='line'>$(document).ready(ready);
+</span><span class='line'>$(document).on('page:load', ready);</span></code></pre></td></tr></table></div></figure>
 
 
-<h4>lib</h4>
+<h3>Links</h3>
 
-<p>This folder contains all the files responsible for the functionality of your module.</p>
+<p><a href="https://github.com/rails/turbolinks" title="Turbolinks Project">Turbolinks Project</a></p>
 
-<h4>node-modules</h4>
+<p><a href="http://railscasts.com/episodes/390-turbolinks" title="Railscasts Turbolinks">Railscasts Turbolinks</a></p>
 
-<p>This folder contains all the dependencies(other modules) used to implementation. This is created automatically when you install some modude.</p>
-
-<h4>tests</h4>
-
-<p>Contains all tests arquives to test your module.</p>
-
-<h4>LICENSE</h4>
-
-<p>This file contains all informations about the license of module.</p>
-
-<h4>package.json</h4>
-
-<p>This is the most important file, allows to see all information about this module, structure, owner e etc.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{
-</span><span class='line'>  "name": "example-module",
-</span><span class='line'>  "description": "This simple example how create a module",
-</span><span class='line'>  "version": "0.0.1",
-</span><span class='line'>  "author": {
-</span><span class='line'>    "name": "Example Module",
-</span><span class='line'>    "email": "ezample@module.com"
-</span><span class='line'>  },
-</span><span class='line'>  "keywords": [
-</span><span class='line'>    "example",
-</span><span class='line'>    "module",
-</span><span class='line'>    "how to"
-</span><span class='line'>  ],
-</span><span class='line'>  "contributors": [
-</span><span class='line'>    {
-</span><span class='line'>      "name": "Friend1",
-</span><span class='line'>      "email": "friend1@node.net"
-</span><span class='line'>    }
-</span><span class='line'>  ],
-</span><span class='line'>  "repository": {
-</span><span class='line'>    "type": "git",
-</span><span class='line'>    "url": "git://github.com/example-module/example-module.git"
-</span><span class='line'>  },
-</span><span class='line'>  "bugs": {
-</span><span class='line'>    "mail": "bugs@node.com",
-</span><span class='line'>    "url": "http://github.com/fb55/example-module/issues"
-</span><span class='line'>  },
-</span><span class='line'>  "directories": {
-</span><span class='line'>    "lib": "lib/"
-</span><span class='line'>  },
-</span><span class='line'>  "main": "lib/index.js",
-</span><span class='line'>  "scripts": {
-</span><span class='line'>    "test": "tests/test-something.js"
-</span><span class='line'>  },
-</span><span class='line'>  "dependencies": {
-</span><span class='line'>    "example-dependencies": "2.0"
-</span><span class='line'>  },
-</span><span class='line'>  "licenses": [
-</span><span class='line'>    {
-</span><span class='line'>      "type": "MIT",
-</span><span class='line'>      "url": "http://github.com/example-module/example-module/raw/master/LICENSE"
-</span><span class='line'>    }
-</span><span class='line'>  ],
-</span><span class='line'>  "readme": "Here you can put your readme in one string"
-</span><span class='line'>  "_id": "example-module@0.0.1",
-</span><span class='line'>  "_from": "example-module@0.0.1"
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>README.md</h4>
-
-<p>This is a markdown file, contains all information how to use de module, version and example the code.</p>
-
-<h2>Publish</h2>
-
-<h3>NPM REGISTRY</h3>
-
-<p>First you have to go to <a href="https://npmjs.org/signup">https://npmjs.org/signup</a> and create account and user.</p>
-
-<h3>npm adduser</h3>
-
-<p>Now you need add user to publish your module.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>npm adduser
-</span><span class='line'> 
-</span><span class='line'>Username: example
-</span><span class='line'>Password: 
-</span><span class='line'>Email: example@node.com</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>npm publish</h3>
-
-<p>Now you have to go to root of your module and use this command.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>npm publish</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now your module was published and you can download from npm and install in other project.</p>
+<hr />
 </div>
 
 
@@ -330,13 +239,13 @@ posted in
   
 
 
-<time datetime="2013-09-03T08:02:00-03:00" pubdate data-updated="true">Sep 3<span>rd</span>, 2013</time> - 
+<time datetime="2013-11-26T23:36:00-02:00" pubdate data-updated="true">Nov 26<span>th</span>, 2013</time> - 
       
 
 posted in
 <span class="categories">
   
-    <a class='category' href='/blog/categories/node-dot-js/'>Node.js</a>
+    <a class='category' href='/blog/categories/rails/'>Rails</a>
   
 </span>
 
@@ -345,7 +254,7 @@ posted in
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/" data-via="ptarcode" data-counturl="http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/" data-via="ptarcode" data-counturl="http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -357,10 +266,8 @@ posted in
 
     
     
-      <a class="pull-left" href="/blog/2013/08/21/blocks-procs-e-lambdas/" title="Previous Post: Blocks, Procs e Lambdas">&laquo; Blocks, Procs e Lambdas</a>
+      <a class="pull-left" href="/blog/2013/09/09/clima-tempo-module-for-node-dot-js/" title="Previous Post: Clima tempo module for Node.js">&laquo; Clima tempo module for Node.js</a>
     
-    
-      <a class="pull-right" href="/blog/2013/09/09/clima-tempo-module-for-node-dot-js/" title="Next Post: Clima tempo module for Node.js">Clima tempo module for Node.js &raquo;</a>
     
   </footer>
 
@@ -490,8 +397,8 @@ posted in
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/';
-        var disqus_url = 'http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/';
+        var disqus_identifier = 'http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/';
+        var disqus_url = 'http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/';
         var disqus_script = 'embed.js';
       
     (function () {

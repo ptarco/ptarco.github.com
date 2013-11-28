@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | Paulo de Tarço]]></title>
   <link href="http://ptarcode.github.io/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://ptarcode.github.io/"/>
-  <updated>2013-09-09T12:00:06-03:00</updated>
+  <updated>2013-11-27T22:54:28-02:00</updated>
   <id>http://ptarcode.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -12,6 +12,126 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails 4 Turbolinks]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/"/>
+    <updated>2013-11-26T23:36:00-02:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h3>What is?</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>gem 'turbolinks'
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
+&ldquo;This is a gem that works similar to pjax, but instead of worrying about what element on the page to replace, and tailoring the server-side response to fit, we replace the entire body. This means that you get the bulk of the speed benefits from pjax (no recompiling of the JavaScript or CSS) without having to tailor the server-side response. It just works.&rdquo;</p>
+
+<h3>PJAX</h3>
+
+<p>Uses AJAX and PushState to deliver a faster browsing experience by only loading and updating parts of the page HTML each page load. PushState makes it possible to add real permalinks, page titles, and a working back button so that your visitors won&rsquo;t be able to tell the difference between PJAX page load and ordinary full page loads.</p>
+
+<p><a href="http://www.youtube.com/watch?v=CKv9C2qUL-8" title="Title">Tutorial</a></p>
+
+<h3>Using the gem</h3>
+
+<p>Gemfile:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>gem 'turbolinks'
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Add this line on app/assets/javascripts/application.js:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>//= require turbolinks
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>app/views/layouts/application.html.erb:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%= stylesheet_link_tag    &ldquo;application&rdquo;, media: &ldquo;all&rdquo;, &ldquo;data-turbolinks-track&rdquo; => true %>
+</span><span class='line'>&lt;%= javascript_include_tag &ldquo;application&rdquo;, &ldquo;data-turbolinks-track&rdquo; => true %></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>If you wont use Turbolink in some link, you can manually exclude:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="http://ptarcode.github.io/examples" data-no-turbolink>Examples&lt;/a></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>&ldquo;With Turbolinks pages will change without a full reload, so you can&rsquo;t rely on DOMContentLoaded or jQuery.ready() to trigger your code. Instead Turbolinks fires events on document to provide hooks into the lifecycle of the page.&rdquo;
+Runtime Dependencies coffee-rails, but if you want use javascript.You can manually download and compile the turbolinks.js.coffee to JavaScript.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ready = &ndash;>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  &hellip;your coffeescript goes here&hellip;&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>$(document).ready(ready)
+</span><span class='line'>$(document).on(&lsquo;page:load&rsquo;, ready)</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var ready;
+</span><span class='line'>ready = function() {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  &hellip;your javascript goes here&hellip;&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>};&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>$(document).ready(ready);
+</span><span class='line'>$(document).on(&lsquo;page:load&rsquo;, ready);&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Links</h3>
+
+<p><a href="https://github.com/rails/turbolinks" title="Turbolinks Project">Turbolinks Project</a></p>
+
+<p><a href="http://railscasts.com/episodes/390-turbolinks" title="Railscasts Turbolinks">Railscasts Turbolinks</a></p>
+
+<hr />
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gem agendare-schedule]]></title>
