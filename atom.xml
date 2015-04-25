@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo de Tarço]]></title>
   <link href="http://ptarcode.github.io/atom.xml" rel="self"/>
   <link href="http://ptarcode.github.io/"/>
-  <updated>2013-11-27T22:54:28-02:00</updated>
+  <updated>2015-04-25T15:28:25-03:00</updated>
   <id>http://ptarcode.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -23,7 +23,7 @@
 <!--more-->
 
 
-<h3>What is?</h3>
+<h3>What is it?</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>gem 'turbolinks'</span></code></pre></td></tr></table></div></figure>
