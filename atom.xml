@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo de Tarço]]></title>
   <link href="http://ptarcode.github.io/atom.xml" rel="self"/>
   <link href="http://ptarcode.github.io/"/>
-  <updated>2015-04-26T00:57:11-03:00</updated>
+  <updated>2015-04-26T01:07:04-03:00</updated>
   <id>http://ptarcode.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -36,7 +36,7 @@
 
 <hr />
 
-<p><video width='640' height='340' preload='none' controls poster='http://ptarcode.github.io/images/cover-movie.png'><source src='http://ptarcode.github.io/images/movie-audio/homebrew.wmv' ></video></p>
+<p><video width='640' height='340' preload='none' controls poster='http://ptarcode.github.io/images/cover-movie.png'><source src='http://ptarcode.github.io/images/movie-audio/homebrew.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></p>
 
 <hr />
 ]]></content>
