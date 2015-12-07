@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: GitHub | Paulo de Tarço]]></title>
+  <link href="http://ptarcode.github.io/blog/categories/github/atom.xml" rel="self"/>
+  <link href="http://ptarcode.github.io/"/>
+  <updated>2015-12-07T23:37:49+00:00</updated>
+  <id>http://ptarcode.github.io/</id>
+  <author>
+    <name><![CDATA[Paulo de Tarço]]></name>
+    <email><![CDATA[ptarcode@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Blog + Octopress + GitHub]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/08/11/blog-plus-octopress-plus-github/"/>
+    <updated>2013-08-11T18:04:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/08/11/blog-plus-octopress-plus-github</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h3>Quick Summary for creating and deploying a post</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post[&ldquo;New Post&rdquo;]
+</span><span class='line'>$ rake generate
+</span><span class='line'>$ git add .
+</span><span class='line'>$ git commit -am &ldquo;Some comment here.&rdquo;
+</span><span class='line'>$ git push origin source
+</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Installation Process</h3>
+
+<p>Go to the terminal and clone the Octopress repo:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>cd octopress</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Check the version of Ruby is 1.9.2. This version is required.</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby &mdash;version
+</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>This command installs Octopress</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Deploying to Github</h3>
+
+<p>Create a new Github repository. If you are creating a personal blog create a repo called:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>username.github.com</span></code></pre></td></tr></table></div></figure></notextile></div>
+After creating the repo, run the following command.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$rake setup_github_pages</span></code></pre></td></tr></table></div></figure></notextile></div>
+Which is supposed to:</p>
+
+<hr />
+
+<ul>
+<li>init a git repo</li>
+<li>rename the branch from master to source</li>
+<li>add your repo to origin.</li>
+</ul>
+
+
+<hr />
+
+<p>Running the previous command shows this:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Enter the read/write url for your repository</span></code></pre></td></tr></table></div></figure></notextile></div>
+You have to enter it like this:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git@github.com:username/username.github.com.git</span></code></pre></td></tr></table></div></figure></notextile></div>
+For me it didn’t rename the branch from master to source or add my remote repo. I did it manually (see below)</p>
+
+<h3>Add your remote repo</h3>
+
+<p>Check what remote repositories you have:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git remote -v</span></code></pre></td></tr></table></div></figure></notextile></div>
+My output was:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>octopress   git://github.com/imathis/octopress.git (fetch)
+</span><span class='line'>octopress   git://github.com/imathis/octopress.git (push)</span></code></pre></td></tr></table></div></figure></notextile></div>
+To add your repo do:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git remote add origin git@github.com:username/username.github.com.git</span></code></pre></td></tr></table></div></figure></notextile></div>
+Rename the branch from master to source
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$git branch
+</span><span class='line'>* master
+</span><span class='line'>$git branch -m master source
+</span><span class='line'>$git branch
+</span><span class='line'>* source</span></code></pre></td></tr></table></div></figure></notextile></div>
+Preview on development stage
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake preview</span></code></pre></td></tr></table></div></figure></notextile></div>
+Then browse to:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>localhost:4000</span></code></pre></td></tr></table></div></figure></notextile></div>
+If you get this error:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Sorry, I cannot find /</span></code></pre></td></tr></table></div></figure></notextile></div>
+Read this link: Deploying to a Subdirectory</p>
+
+<h3>First push to Github</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$rake generate
+</span><span class='line'>$git add .
+</span><span class='line'>$git commit -am &ldquo;First deploy to github.&rdquo;
+</span><span class='line'>$git push origin source
+</span><span class='line'>$rake deploy</span></code></pre></td></tr></table></div></figure></notextile></div>
+Create a new posting
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$rake new_post[&ldquo;Creating a Github Blog Using Octopress&rdquo;]</span></code></pre></td></tr></table></div></figure></notextile></div>
+Go to the app folder source/_posts to find the new posting
+Edit the posting and then follow these steps
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$rake generate
+</span><span class='line'>$git add .
+</span><span class='line'>$git commit -m &ldquo;Initial blog post.&rdquo;
+</span><span class='line'>$git push origin source
+</span><span class='line'>$rake deploy</span></code></pre></td></tr></table></div></figure></notextile></div>
+Add a custom domain
+Go to source folder and create 2 files :
+(mate if you are using Textmate)
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd source
+</span><span class='line'>mate CNAME
+</span><span class='line'>mate .nojekyll</span></code></pre></td></tr></table></div></figure></notextile></div>
+Open the CNAMe file and this line:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>www.yourdomain.com</span></code></pre></td></tr></table></div></figure></notextile></div>
+The NoJekyll file will make Octopress works in Github Pages.
+Push again to github
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate
+</span><span class='line'>git add .
+</span><span class='line'>git add -am &lsquo;domain configuration&rsquo;
+</span><span class='line'>git push origin source
+</span><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure></notextile></div>
+Github need time to read your CNAME and updating the sites.</p>
+
+<hr />
+]]></content>
+  </entry>
+  
+</feed>

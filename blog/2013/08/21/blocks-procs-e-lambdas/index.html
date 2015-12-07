@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Blocks, Procs e Lambdas - Paulo de Tarço</title>
+  <meta name="author" content="Paulo de Tarço">
+  <link rel="author" href="humans.txt">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+    
+  
+  <meta name="description" content=" Blocks, Procs e Lambdas ">
+  <meta name="keywords" content="blocks, procs, lambdas, ruby"> 
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Paulo de Tarço" type="application/atom+xml">
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="Paulo de Tarço" />
+  <meta name="og:title" content="Blocks, Procs e Lambdas" />
+  <meta name="og:description" content=" Blocks, Procs e Lambdas " />
+  <meta name="og:url" content="http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/"/>
+  <meta name="url" content="http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/">
+  
+  <meta name="subject" content="Ruby"/>
+  <meta name="category" content="Ruby"/>
+  
+  <meta name="distribution" content="global">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> 
+<meta name="og:image" content="http://en.gravatar.com/userimage/53584595/939e1ad52f2153bfa5208ff9f2014ff4.jpg?size=200" /> 
+  
+
+  <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,fr,pt'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/">Paulo de Tarço</a>
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog/archives">Archives</a></li>
+    </ul>
+    <ul class="nav" data-subscription="rss">
+      <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      
+    </ul>
+      
+    <form class="navbar-form" action="http://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:ptarcode.github.io" />
+        <input class="span2" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+      
+    
+  </div>
+</div>
+</nav>
+  <div class="wrapper_single">
+    <div class="container">
+      <article class="span8 offset2" role="article">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title">Blocks, Procs E Lambdas</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/106034953103370639100?rel=author"><span class="fn">Paulo de Tarço</span></a></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-21T22:35:00+01:00" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><hr />
+
+<!--more-->
+
+
+<h2>Blocks</h2>
+
+<p>Writing methods that can accept blocks is simple. There&rsquo;s no special syntax needed, you can simply write the method as you would any other. To call any block passed to the method, use the yield keyword. Like any other method call, when you use the yield keyword you can leave it as it is and call the block without any parameters. Or, if you wish, you can add a parameter list as you would with a method call.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def call_this_block
+</span><span class='line'>  yield
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>call_this_block { puts "tweet" }</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Optional Block</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Optional
+</span><span class='line'>  def initialize
+</span><span class='line'>     yield self if block_given?
+</span><span class='line'>  end
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Procs</h2>
+
+<p>Proc objects are blocks of code that have been bound to a set of local variables. Once bound, the code may be called in different contexts and still access those variables.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def gen_times(factor)
+</span><span class='line'>  return Proc.new {|n| n*factor }
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>times3 = gen_times(3)
+</span><span class='line'>times5 = gen_times(5)
+</span><span class='line'>
+</span><span class='line'>times3.call(12)               #=> 36
+</span><span class='line'>times5.call(5)                #=> 25
+</span><span class='line'>times3.call(times5.call(4))   #=> 60</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Lambdas</h2>
+
+<p>You may have heard of lambdas before. Perhaps you&rsquo;ve used them in other languages. Despite the fancy name, a lambda is just a function&hellip; peculiarly&hellip; without a name. They&rsquo;re anonymous, little functional spies sneaking into the rest of your code. Lambdas in Ruby are also objects, just like everything else! The last expression of a lambda is its return value, just like regular functions. As boring and familiar as that all sounds, it gives us a lot of power.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>my_proc = lambda { puts "tweet" }
+</span><span class='line'>my_proc.call # => tweet</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Multiple Lambdas</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Comment
+</span><span class='line'>  def post(
+</span><span class='line'>      if authenticate?(@user, @password)
+</span><span class='line'>          # submit the comment
+</span><span class='line'>          success
+</span><span class='line'>          success.call
+</span><span class='line'>      else
+</span><span class='line'>          error.call
+</span><span class='line'>      end
+</span><span class='line'>  end
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>comment   = Comment.new('Yeeeeeep!')
+</span><span class='line'>success = -> { puts "Sent!" }
+</span><span class='line'>error   = -> { raise 'Auth Error' }
+</span><span class='line'>comment.post(success, error)</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Lambda to Block</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>blablas = ["First", "Second"]
+</span><span class='line'>blablas.each do |blabla|
+</span><span class='line'>puts blabla                   #Lets try converting to a proc
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>blablas = ["First", "Second"]
+</span><span class='line'>printer = lambda { |blabla| puts blabla }
+</span><span class='line'>
+</span><span class='line'>blablas.each(&printer)       
+</span><span class='line'>
+</span><span class='line'>#‘&’ turns proc into block 
+</span><span class='line'>#because each expects a block, not a proc</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/106034953103370639100?rel=author"><span class="fn">Paulo de Tarço</span></a></span>
+  
+
+ - 
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-21T22:35:00+01:00" pubdate data-updated="true">Aug 21<span>st</span>, 2013</time> - 
+      
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/" data-via="ptarcode" data-counturl="http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    
+      <a class="pull-left" href="/blog/2013/08/17/gem-agendare-schedule/" title="Previous Post: Gem agendare-schedule">&laquo; Gem agendare-schedule</a>
+    
+    
+      <a class="pull-right" href="/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/" title="Next Post: Writing and Publishing Node.js Modules">Writing and Publishing Node.js Modules &raquo;</a>
+    
+  </footer>
+
+</div>
+
+        
+          <div class="article-format">
+            <h1>Comments</h1>
+            <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+          </div>
+        
+      </article>
+    </div>
+  </div>
+  <div id="footer-widgets">
+  <div class="container">
+    <div class="row">
+  <div class="span3">
+    <h2>recent posts</h2>
+    <ul class="recent_posts">
+      
+        <li>
+          <a href="/blog/2015/04/26/latex-to-html/">Latex to Html</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2015/04/26/first-peripheral-only-with-radio-static/">First peripheral only with radio static.</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/11/26/rails-4-turbolinks/">Rails 4 Turbolinks</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/09/09/clima-tempo-module-for-node-dot-js/">Clima tempo module for Node.js</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/">Writing and Publishing Node.js Modules</a>
+        </li>
+      
+    </ul>
+    <h2><a href="/blog/archives">archives</a></h2>
+  </div>
+  <div class="span3">
+    
+
+  </div>
+  <div class="span4">
+    
+<h2>twitter</h2>
+<a href="https://twitter.com/ptarcode" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @ptarcode</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<div class="tweet" data-twitter-user="ptarcode">
+</div>
+
+
+  </div>
+  <div class="span2">
+    <div class="translater">
+<h4>translater</h2>
+<div id="google_translate_element"></div>Google
+</div>
+<h2>found on</h2>
+
+<a href="https://github.com/ptarcode/" rel="tooltip" title="Github"><img class="social_icon" title="Github" alt="github icon" src="/images/glyphicons_381_github.png"></a>
+
+
+
+<a href="https://rubygems.org/profiles/ptarcode?rel=author" rel="tooltip" title="RubyGems.org"><img class="social_icon" title="RubyGems.org" alt="RubyGems.org icon" src="/images/glyphicons_401_rubygems.png"></a>
+
+
+
+<a href="https://npmjs.org/~ptarcode/" rel="tooltip" title="NPM RESGISTRY"><img class="social_icon" title="NPM RESGISTRY" alt="npm overflow icon" src="/images/glyphicons_401_npm.png"></a>
+
+
+
+
+
+<a href="http://twitter.com/ptarcode" rel="tooltip" title="Twitter"><img class="social_icon" title="Twitter" alt="Twitter icon" src="/images/glyphicons_391_twitter_t.png"></a>
+
+
+
+<a href="https://plus.google.com/106034953103370639100?rel=author" rel="tooltip" title="Google Plus"><img class="social_icon" title="Google Plus" alt="Google Plus icon" src="/images/glyphicons_386_google_plus.png"></a>
+
+
+
+
+
+<a href="http://www.linkedin.com/in/paulodetarco" rel="tooltip" title="Linkedin"><img class="social_icon" title="Linkedin" alt="Linkedin icon" src="/images/glyphicons_377_linked_in.png"></a>
+
+
+
+<h2>contact at</h2>
+<a href="mailto:ptarcode@gmail.com">ptarcode@gmail.com</a> 
+
+
+  </div>
+</div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">
+  <a href="/">Paulo de Tarço</a>
+  - Copyright &copy; 2015 - Paulo de Tarço
+</p>
+<p class="pull-right">
+  <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
+  
+<!--     <span>Designed by <a href="http://www.AdrianArtiles.com">Adrian Artiles</a>.</span> -->
+  
+</p>
+
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
+<script src="/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tweet.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.instagram.js" type="text/javascript"></script>
+<script src="/javascripts/libs/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/javascripts/custom.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'ptarcode';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/';
+        var disqus_url = 'http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

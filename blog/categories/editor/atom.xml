@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Editor | Paulo de Tarço]]></title>
+  <link href="http://ptarcode.github.io/blog/categories/editor/atom.xml" rel="self"/>
+  <link href="http://ptarcode.github.io/"/>
+  <updated>2015-12-07T23:37:49+00:00</updated>
+  <id>http://ptarcode.github.io/</id>
+  <author>
+    <name><![CDATA[Paulo de Tarço]]></name>
+    <email><![CDATA[ptarcode@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Latex to Html]]></title>
+    <link href="http://ptarcode.github.io/blog/2015/04/26/latex-to-html/"/>
+    <updated>2015-04-26T18:51:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2015/04/26/latex-to-html</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>MathJax</h3>
+
+<p>Perfect to render equations but don&rsquo;t have structures support like tables and lists.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;html>
+</span><span class='line'>&lt;head>
+</span><span class='line'>&lt;title>MathJax TeX Test Page&lt;/title>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;script type="text/x-mathjax-config">
+</span><span class='line'>  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</span><span class='line'>&lt;/script>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>&lt;script type="text/javascript"
+</span><span class='line'>  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</span><span class='line'>&lt;/script>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>&lt;p>&lt;/head></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;body>
+</span><span class='line'>When $a \ne 0$, there are two solutions to (ax&lt;sup>2&lt;/sup> + bx + c = 0) and they are
+</span><span class='line'>$$x = {-b \pm \sqrt{b&lt;sup>2&lt;/sup>-4ac} \over 2a}.$$
+</span><span class='line'>&lt;/body></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h5>Saiba mais em <a href="http://www.mathjax.org/.">http://www.mathjax.org/.</a></h5>
+
+<h3>Latex2html5</h3>
+
+<p>This project is the frontend only version of the code that originated from Mathapedia to enable real-time, dynamic authorship of mathematical ebooks</p>
+
+<script type="text/x-mathjax-config">
+    // &lt;![CDATA[
+    MathJax.Hub.Config({ 
+        TeX: {extensions: ["AMSmath.js", "AMSsymbols.js"]},     
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        showProcessingMessages : false,
+        messageStyle : "none" ,    
+        showMathMenu: false ,
+        tex2jax: {
+            processEnvironments: true,
+            inlineMath: [ ['$','$'], ["\(","\)"] ],
+            displayMath: [ ['$$','$$'], ["\[","\]"] ],
+            preview : "none",
+            processEscapes: true
+        },
+        "HTML-CSS": { linebreaks: { automatic:true, width: "latex-container"} }
+    });
+    // ]]&gt;
+</script>
+
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+
+<p>LaTeX2HTML5 Installation</p>
+
+<p>Simply download the JS and CSS files and include them on your MathJax enabled website:</p>
+
+<pre><code> &lt;link rel="stylesheet" href="latex2html5.min.css"&gt; 
+ &lt;script type="text/javascript" src="latex2html5.min.js"&gt;&lt;/script&gt; 
+</code></pre>
+
+<p>If you want the same font as the rendered examples:
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus+Slab" type="text/css"></p>
+
+<p>You have three options for parsing the LATEX:
+You can put LATEX inside of the current page within a script tag with the type set to &ldquo;tex/latex&rdquo;:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>        &lt;script type="tex/latex"&gt;
+</span><span class='line'>            ... LaTeX here ...
+</span><span class='line'>        &lt;/script&gt;
+</span><span class='line'>        &lt;script type="text/javascript"&gt;
+</span><span class='line'>            $('body').latex();
+</span><span class='line'>        &lt;/script&gt;
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>      <br/>
+or you can read a .tex file from somewhere else, which is nice for editing .tex files:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>        &lt;latex src="path/to/my/latex.tex"&gt;
+</span><span class='line'>        &lt;script type="text/javascript"&gt;
+</span><span class='line'>            $('latex').LaTeX();
+</span><span class='line'>        &lt;/script&gt;
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>      <br/>
+or you can write it from scratch!
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>MathJax.Hub.Register.StartupHook(&ldquo;End&rdquo;,function () {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>  $('[type="tex/latex"]').each(function (i, el) {
+</span><span class='line'>      var $el = $(el);
+</span><span class='line'>      var TEX = new LaTeX2HTML5.TeX({
+</span><span class='line'>          tagName: 'section',
+</span><span class='line'>          className: 'latex-container',
+</span><span class='line'>          latex: $el.text()
+</span><span class='line'>      });
+</span><span class='line'>      TEX.render();
+</span><span class='line'>      $el.replaceWith(TEX.$el);
+</span><span class='line'>  });
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  });&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Examples:</p>
+
+<h5>pstricks    <a href="http://latex2html5.com/examples/pstricks.html">http://latex2html5.com/examples/pstricks.html</a></h5>
+
+<h5>interactive <a href="http://latex2html5.com/examples/interactive.html">http://latex2html5.com/examples/interactive.html</a></h5>
+
+<h5>graphs      <a href="http://latex2html5.com/examples/graphs.html">http://latex2html5.com/examples/graphs.html</a></h5>
+]]></content>
+  </entry>
+  
+</feed>

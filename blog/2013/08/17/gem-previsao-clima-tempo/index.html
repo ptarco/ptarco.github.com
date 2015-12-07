@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Gem previsao-clima-tempo - Paulo de Tarço</title>
+  <meta name="author" content="Paulo de Tarço">
+  <link rel="author" href="humans.txt">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+    
+  
+  <meta name="description" content=" Gem Communication with Clima Tempo accessing information about the weather of Brazil. ">
+  <meta name="keywords" content="clima tempo, clima-tempo, gem clima tempo, gem clima-tempo, previsao tempo, previsao-clima-tempo, gem"> 
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Paulo de Tarço" type="application/atom+xml">
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="Paulo de Tarço" />
+  <meta name="og:title" content="Gem previsao-clima-tempo" />
+  <meta name="og:description" content=" Gem Communication with Clima Tempo accessing information about the weather of Brazil. " />
+  <meta name="og:url" content="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/"/>
+  <meta name="url" content="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/">
+  
+  <meta name="subject" content="GemsRails"/>
+  <meta name="category" content="GemsRails"/>
+  
+  <meta name="distribution" content="global">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> 
+<meta name="og:image" content="http://en.gravatar.com/userimage/53584595/939e1ad52f2153bfa5208ff9f2014ff4.jpg?size=200" /> 
+  
+
+  <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,fr,pt'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/">Paulo de Tarço</a>
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog/archives">Archives</a></li>
+    </ul>
+    <ul class="nav" data-subscription="rss">
+      <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      
+    </ul>
+      
+    <form class="navbar-form" action="http://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:ptarcode.github.io" />
+        <input class="span2" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+      
+    
+  </div>
+</div>
+</nav>
+  <div class="wrapper_single">
+    <div class="container">
+      <article class="span8 offset2" role="article">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title">Gem Previsao-clima-tempo</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/106034953103370639100?rel=author"><span class="fn">Paulo de Tarço</span></a></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-17T00:00:00+01:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time> - 
+        
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gems/'>Gems</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>
+  
+</span>
+
+
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><hr />
+
+<!--more-->
+
+
+<p><a href="http://badge.fury.io/rb/previsao-clima-tempo"><img src="https://badge.fury.io/rb/previsao-clima-tempo.png" alt="Gem Version" /></a></p>
+
+<p>Communication with Clima Tempo accessing information about the weather of Brazil.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application&rsquo;s Gemfile:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'previsao-clima-tempo'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then execute:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or install it yourself as:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem install previsao-clima-tempo</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Usage</h2>
+
+<h3>From Webservice</h3>
+
+<h5>.new</h5>
+
+<p>Instantiating a object.The city code should be informed.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156')</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.now</h5>
+
+<p>Returns an object PrevisaoDia with information from the current day.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').now</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.tomorrow</h5>
+
+<p>Returns an object PrevisaoDia with information the next day.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').tomorrow</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.days</h5>
+
+<p>Returns a collection of objects PrevisaoDia with information of days referenced.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').days(13) maximum of 13 days from the current day</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.day</h5>
+
+<p>Returns an object PrevisaoDia with information the day referenced.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').day(date)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>From Page</h3>
+
+<h4>(contains more information than is extracted from the webservice)</h4>
+
+<h5>.nowFromPage</h5>
+
+<p>Returns a hash of condtions of weather from page</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').nowFromPage</span></code></pre></td></tr></table></div></figure>
+
+
+<p>return:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>      :last_update: 18:00
+</span><span class='line'>      :wind:
+</span><span class='line'>        :velocity: 3 Km/h
+</span><span class='line'>        :direction: Su-sudeste
+</span><span class='line'>      :moisture: 91%
+</span><span class='line'>      :condition: Poucas nuvens
+</span><span class='line'>      :pression: 1022 hPa
+</span><span class='line'>      :temperature: 13ºC  
+</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.fullFromPage</h5>
+
+<p>Returns a hash of condtions of weather whith 5 days from page.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').fullFromPage</span></code></pre></td></tr></table></div></figure>
+
+
+<p>return:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>      1:
+</span><span class='line'>        :last_update: 19:00
+</span><span class='line'>        :date: Sábado, 17/08/2013
+</span><span class='line'>        :condition: Sol com muitas nuvens durante o dia e períodos de céu nublado. Noite
+</span><span class='line'>          com muitas nuvens.
+</span><span class='line'>        :wind:
+</span><span class='line'>          :velocity: 6km/h
+</span><span class='line'>          :direction: Su-sudeste
+</span><span class='line'>        :probability_of_precipitation:
+</span><span class='line'>          :volume: 0mm
+</span><span class='line'>          :percentage: 0%
+</span><span class='line'>        :moisture_relative_complete:
+</span><span class='line'>          :max: 100%
+</span><span class='line'>          :min: 49%
+</span><span class='line'>        :temperature:
+</span><span class='line'>          :max: 16º
+</span><span class='line'>          :min: 7º
+</span><span class='line'>        :uv: Alto
+</span><span class='line'>        :sunrise: 06h13
+</span><span class='line'>        :sunset: 17h36
+</span><span class='line'>      2: ...
+</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.trendsFromPage</h5>
+
+<p>Returns a hash of condtions of weather whith 5 days from page.
+If today is 16-12-2013 returns 21,22,23,24,25 trends.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').trendsFromPage</span></code></pre></td></tr></table></div></figure>
+
+
+<p>return:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>      1:
+</span><span class='line'>        :date: Quinta-Feira, 22/08/2013
+</span><span class='line'>        :condition: Sol com algumas nuvens. Não chove.
+</span><span class='line'>        :probability_of_precipitation:
+</span><span class='line'>          :volume: 0mm
+</span><span class='line'>          :percentage: 0%
+</span><span class='line'>        :temperature:
+</span><span class='line'>          :max: 23º
+</span><span class='line'>          :min: 7º
+</span><span class='line'>      2: 
+</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/106034953103370639100?rel=author"><span class="fn">Paulo de Tarço</span></a></span>
+  
+
+ - 
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-17T00:00:00+01:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time> - 
+      
+
+posted in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/gems/'>Gems</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/" data-via="ptarcode" data-counturl="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    
+      <a class="pull-left" href="/blog/2013/08/11/blog-plus-octopress-plus-github/" title="Previous Post: Blog + Octopress + GitHub">&laquo; Blog + Octopress + GitHub</a>
+    
+    
+      <a class="pull-right" href="/blog/2013/08/17/gem-agendare-schedule/" title="Next Post: Gem agendare-schedule">Gem agendare-schedule &raquo;</a>
+    
+  </footer>
+
+</div>
+
+        
+          <div class="article-format">
+            <h1>Comments</h1>
+            <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+          </div>
+        
+      </article>
+    </div>
+  </div>
+  <div id="footer-widgets">
+  <div class="container">
+    <div class="row">
+  <div class="span3">
+    <h2>recent posts</h2>
+    <ul class="recent_posts">
+      
+        <li>
+          <a href="/blog/2015/04/26/latex-to-html/">Latex to Html</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2015/04/26/first-peripheral-only-with-radio-static/">First peripheral only with radio static.</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/11/26/rails-4-turbolinks/">Rails 4 Turbolinks</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/09/09/clima-tempo-module-for-node-dot-js/">Clima tempo module for Node.js</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/">Writing and Publishing Node.js Modules</a>
+        </li>
+      
+    </ul>
+    <h2><a href="/blog/archives">archives</a></h2>
+  </div>
+  <div class="span3">
+    
+
+  </div>
+  <div class="span4">
+    
+<h2>twitter</h2>
+<a href="https://twitter.com/ptarcode" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @ptarcode</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<div class="tweet" data-twitter-user="ptarcode">
+</div>
+
+
+  </div>
+  <div class="span2">
+    <div class="translater">
+<h4>translater</h2>
+<div id="google_translate_element"></div>Google
+</div>
+<h2>found on</h2>
+
+<a href="https://github.com/ptarcode/" rel="tooltip" title="Github"><img class="social_icon" title="Github" alt="github icon" src="/images/glyphicons_381_github.png"></a>
+
+
+
+<a href="https://rubygems.org/profiles/ptarcode?rel=author" rel="tooltip" title="RubyGems.org"><img class="social_icon" title="RubyGems.org" alt="RubyGems.org icon" src="/images/glyphicons_401_rubygems.png"></a>
+
+
+
+<a href="https://npmjs.org/~ptarcode/" rel="tooltip" title="NPM RESGISTRY"><img class="social_icon" title="NPM RESGISTRY" alt="npm overflow icon" src="/images/glyphicons_401_npm.png"></a>
+
+
+
+
+
+<a href="http://twitter.com/ptarcode" rel="tooltip" title="Twitter"><img class="social_icon" title="Twitter" alt="Twitter icon" src="/images/glyphicons_391_twitter_t.png"></a>
+
+
+
+<a href="https://plus.google.com/106034953103370639100?rel=author" rel="tooltip" title="Google Plus"><img class="social_icon" title="Google Plus" alt="Google Plus icon" src="/images/glyphicons_386_google_plus.png"></a>
+
+
+
+
+
+<a href="http://www.linkedin.com/in/paulodetarco" rel="tooltip" title="Linkedin"><img class="social_icon" title="Linkedin" alt="Linkedin icon" src="/images/glyphicons_377_linked_in.png"></a>
+
+
+
+<h2>contact at</h2>
+<a href="mailto:ptarcode@gmail.com">ptarcode@gmail.com</a> 
+
+
+  </div>
+</div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">
+  <a href="/">Paulo de Tarço</a>
+  - Copyright &copy; 2015 - Paulo de Tarço
+</p>
+<p class="pull-right">
+  <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
+  
+<!--     <span>Designed by <a href="http://www.AdrianArtiles.com">Adrian Artiles</a>.</span> -->
+  
+</p>
+
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
+<script src="/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tweet.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.instagram.js" type="text/javascript"></script>
+<script src="/javascripts/libs/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/javascripts/custom.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'ptarcode';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/';
+        var disqus_url = 'http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

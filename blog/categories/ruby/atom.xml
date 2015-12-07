@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby | Paulo de Tarço]]></title>
+  <link href="http://ptarcode.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://ptarcode.github.io/"/>
+  <updated>2015-12-07T23:37:49+00:00</updated>
+  <id>http://ptarcode.github.io/</id>
+  <author>
+    <name><![CDATA[Paulo de Tarço]]></name>
+    <email><![CDATA[ptarcode@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Blocks, Procs e Lambdas]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/"/>
+    <updated>2013-08-21T22:35:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h2>Blocks</h2>
+
+<p>Writing methods that can accept blocks is simple. There&rsquo;s no special syntax needed, you can simply write the method as you would any other. To call any block passed to the method, use the yield keyword. Like any other method call, when you use the yield keyword you can leave it as it is and call the block without any parameters. Or, if you wish, you can add a parameter list as you would with a method call.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def call_this_block&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>yield
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>end&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>call_this_block { puts &ldquo;tweet&rdquo; }&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h4>Optional Block</h4>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Optional&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>def initialize
+</span><span class='line'>   yield self if block_given?
+</span><span class='line'>end
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>end</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>Procs</h2>
+
+<p>Proc objects are blocks of code that have been bound to a set of local variables. Once bound, the code may be called in different contexts and still access those variables.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def gen_times(factor)
+</span><span class='line'>  return Proc.new {|n| n*factor }
+</span><span class='line'>end&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>times3 = gen_times(3)
+</span><span class='line'>times5 = gen_times(5)&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>times3.call(12)               #=> 36
+</span><span class='line'>times5.call(5)                #=> 25
+</span><span class='line'>times3.call(times5.call(4))   #=> 60&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>Lambdas</h2>
+
+<p>You may have heard of lambdas before. Perhaps you&rsquo;ve used them in other languages. Despite the fancy name, a lambda is just a function&hellip; peculiarly&hellip; without a name. They&rsquo;re anonymous, little functional spies sneaking into the rest of your code. Lambdas in Ruby are also objects, just like everything else! The last expression of a lambda is its return value, just like regular functions. As boring and familiar as that all sounds, it gives us a lot of power.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>my_proc = lambda { puts &ldquo;tweet&rdquo; }
+</span><span class='line'>my_proc.call # => tweet</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h4>Multiple Lambdas</h4>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Comment&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>def post(
+</span><span class='line'>    if authenticate?(@user, @password)
+</span><span class='line'>        # submit the comment
+</span><span class='line'>        success
+</span><span class='line'>        success.call
+</span><span class='line'>    else
+</span><span class='line'>        error.call
+</span><span class='line'>    end
+</span><span class='line'>end
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>end&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>comment   = Comment.new(&lsquo;Yeeeeeep!&rsquo;)
+</span><span class='line'>success = &ndash;> { puts &ldquo;Sent!&rdquo; }
+</span><span class='line'>error   = &ndash;> { raise &lsquo;Auth Error&rsquo; }
+</span><span class='line'>comment.post(success, error)</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h4>Lambda to Block</h4>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>blablas = [&ldquo;First&rdquo;, &ldquo;Second&rdquo;]
+</span><span class='line'>blablas.each do |blabla|
+</span><span class='line'>puts blabla                 #Lets try converting to a proc
+</span><span class='line'>end&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>blablas = [&ldquo;First&rdquo;, &ldquo;Second&rdquo;]
+</span><span class='line'>printer = lambda { |blabla| puts blabla }&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>blablas.each(&amp;printer)&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>‘&amp;’ turns proc into block&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;h1>because each expects a block, not a proc&lt;/h1>
+</span><span class='line'>
+</span><span class='line'>&lt;h2></span></code></pre></td></tr></table></div></figure></notextile></div></h2>
+]]></content>
+  </entry>
+  
+</feed>

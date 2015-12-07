@@ -1,0 +1,1578 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Paulo de Tarço]]></title>
+  <link href="http://ptarcode.github.io/atom.xml" rel="self"/>
+  <link href="http://ptarcode.github.io/"/>
+  <updated>2015-12-07T23:37:49+00:00</updated>
+  <id>http://ptarcode.github.io/</id>
+  <author>
+    <name><![CDATA[Paulo de Tarço]]></name>
+    <email><![CDATA[ptarcode@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Latex to Html]]></title>
+    <link href="http://ptarcode.github.io/blog/2015/04/26/latex-to-html/"/>
+    <updated>2015-04-26T18:51:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2015/04/26/latex-to-html</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>MathJax</h3>
+
+<p>Perfect to render equations but don&rsquo;t have structures support like tables and lists.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;html>
+</span><span class='line'>&lt;head>
+</span><span class='line'>&lt;title>MathJax TeX Test Page&lt;/title>
+</span><span class='line'>&lt;script type="text/x-mathjax-config">
+</span><span class='line'>  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</span><span class='line'>&lt;/script>
+</span><span class='line'>&lt;script type="text/javascript"
+</span><span class='line'>  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</span><span class='line'>&lt;/script>
+</span><span class='line'>&lt;/head></span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;body>
+</span><span class='line'>When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+</span><span class='line'>$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+</span><span class='line'>&lt;/body></span></code></pre></td></tr></table></div></figure>
+
+
+<h5>Saiba mais em <a href="http://www.mathjax.org/.">http://www.mathjax.org/.</a></h5>
+
+<h3>Latex2html5</h3>
+
+<p>This project is the frontend only version of the code that originated from Mathapedia to enable real-time, dynamic authorship of mathematical ebooks</p>
+
+<script type="text/x-mathjax-config">
+    // &lt;![CDATA[
+    MathJax.Hub.Config({ 
+        TeX: {extensions: ["AMSmath.js", "AMSsymbols.js"]},     
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX", "output/HTML-CSS"],
+        showProcessingMessages : false,
+        messageStyle : "none" ,    
+        showMathMenu: false ,
+        tex2jax: {
+            processEnvironments: true,
+            inlineMath: [ ['$','$'], ["\(","\)"] ],
+            displayMath: [ ['$$','$$'], ["\[","\]"] ],
+            preview : "none",
+            processEscapes: true
+        },
+        "HTML-CSS": { linebreaks: { automatic:true, width: "latex-container"} }
+    });
+    // ]]&gt;
+</script>
+
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+
+<p>LaTeX2HTML5 Installation</p>
+
+<p>Simply download the JS and CSS files and include them on your MathJax enabled website:</p>
+
+<pre><code> &lt;link rel="stylesheet" href="latex2html5.min.css"&gt; 
+ &lt;script type="text/javascript" src="latex2html5.min.js"&gt;&lt;/script&gt; 
+</code></pre>
+
+<p>If you want the same font as the rendered examples:
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arbutus+Slab" type="text/css"></p>
+
+<p>You have three options for parsing the LATEX:
+You can put LATEX inside of the current page within a script tag with the type set to &ldquo;tex/latex&rdquo;:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type="tex/latex">
+</span><span class='line'>                ... LaTeX here ...
+</span><span class='line'>            &lt;/script>
+</span><span class='line'>            &lt;script type="text/javascript">
+</span><span class='line'>                $('body').latex();
+</span><span class='line'>            &lt;/script></span></code></pre></td></tr></table></div></figure>
+
+
+<p>or you can read a .tex file from somewhere else, which is nice for editing .tex files:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;latex src="path/to/my/latex.tex">
+</span><span class='line'>            &lt;script type="text/javascript">
+</span><span class='line'>                $('latex').LaTeX();
+</span><span class='line'>            &lt;/script></span></code></pre></td></tr></table></div></figure>
+
+
+<p>or you can write it from scratch!</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>MathJax.Hub.Register.StartupHook("End",function () {
+</span><span class='line'>
+</span><span class='line'>      $('[type="tex/latex"]').each(function (i, el) {
+</span><span class='line'>          var $el = $(el);
+</span><span class='line'>          var TEX = new LaTeX2HTML5.TeX({
+</span><span class='line'>              tagName: 'section',
+</span><span class='line'>              className: 'latex-container',
+</span><span class='line'>              latex: $el.text()
+</span><span class='line'>          });
+</span><span class='line'>          TEX.render();
+</span><span class='line'>          $el.replaceWith(TEX.$el);
+</span><span class='line'>      });
+</span><span class='line'>      
+</span><span class='line'>  });</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Examples:</p>
+
+<h5>pstricks    <a href="http://latex2html5.com/examples/pstricks.html">http://latex2html5.com/examples/pstricks.html</a></h5>
+
+<h5>interactive <a href="http://latex2html5.com/examples/interactive.html">http://latex2html5.com/examples/interactive.html</a></h5>
+
+<h5>graphs      <a href="http://latex2html5.com/examples/graphs.html">http://latex2html5.com/examples/graphs.html</a></h5>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[First peripheral only with radio static.]]></title>
+    <link href="http://ptarcode.github.io/blog/2015/04/26/first-peripheral-only-with-radio-static/"/>
+    <updated>2015-04-26T00:08:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2015/04/26/first-peripheral-only-with-radio-static</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<p>In March 1975, thirty-two computer enthusiasts met in Gordon French’s garage around an Altair 8800 computer. No one had seen anything like it, and they shared whatever information they had. Steve Dompier had actually been to MITS in Albuquerque to pick up an Altair, and he described an overworked staff trying to catch up with a flood of orders. They had already shipped 1500 machines and were working hard to get the next 1100 out the door. What’s more, the company would deliver none of the much-needed accessories until they filled the outstanding orders for the basic machine. This news was about all Dompier had to show for his trip: he ended up leaving Albuquerque without significant chunks of the Altair kit he had bought and paid for.</p>
+
+<p>The Altair actually on display at the meeting had been sent to the editorial department of Bob Albrecht’s People’s Computer Company for review, and he showed it off to the club. It was a marvel, the first small, affordable computer that could actually do something, and there it was in Gordon French’s garage, blinking, maybe even computing—though the only real evidence of that was the blinking, since the machine had no screen or keyboard.</p>
+
+<p>The group agreed to continue meeting and called themselves the Homebrew Computer Club. Over the next weeks they dissected the Altair. Everything about it, good and bad, inspired and excited them, and they would go away into the night planning their own projects—memory boards for the Altair, peripherals, a better bus, even competing computers.</p>
+
+<p>Steve Dompier finally got the remainder of his kit, and he put it together in two sleepless days. Testing it he discovered that its unshielded circuits interfered with a nearby radio, turning everything into static. Interestingly, though, the static changed pitch as the Altair went through its test programs. Dompier stayed up another eight hours working out the musical scale and writing a demo program for Homebrew.</p>
+
+<p>At the next meeting he toggled in the program (twice because someone tripped over the plug the first time) and tuned his radio between stations to get uninterrupted fuzz. At the final flick of a switch, the Altair began playing a wispy version of The Beatles’ “Fool on the Hill” in pure radio static. It was possibly the first program beyond test routines ever written for the Altair. As an encore, the machine then went into a short rendition of “Daisy Bell,” an homage to a pioneering piece of computer music performed at Bell Labs back in the ’50s.</p>
+
+<p>The significance of “Daisy” was obvious, and the room went wild. The Homebrew Computer Club was staking its claim to a world that once belonged only to university labs, corporations, and government agencies. After that night, the power of computing would be open to all.</p>
+
+<hr />
+
+<hr />
+
+<p>Altair plays &ldquo;The Fool on the Hill&rdquo;</p>
+
+<p><video width='640' height='340' preload='none' controls poster='http://ptarcode.github.io/images/cover-movie.png'><source src='http://ptarcode.github.io/images/movie-audio/Altair_Fool_On_the_Hill_music.mp3' ></video></p>
+
+<hr />
+
+<hr />
+
+<p>Homebrew Computer Club</p>
+
+<p><video width='640' height='340' preload='none' controls poster='http://ptarcode.github.io/images/cover-movie.png'><source src='http://ptarcode.github.io/images/movie-audio/homebrew.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'></video></p>
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails 4 Turbolinks]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/"/>
+    <updated>2013-11-26T23:36:00+00:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h3>What is it?</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'turbolinks'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&ldquo;This is a gem that works similar to pjax, but instead of worrying about what element on the page to replace, and tailoring the server-side response to fit, we replace the entire body. This means that you get the bulk of the speed benefits from pjax (no recompiling of the JavaScript or CSS) without having to tailor the server-side response. It just works.&rdquo;</p>
+
+<h3>PJAX</h3>
+
+<p>Uses AJAX and PushState to deliver a faster browsing experience by only loading and updating parts of the page HTML each page load. PushState makes it possible to add real permalinks, page titles, and a working back button so that your visitors won&rsquo;t be able to tell the difference between PJAX page load and ordinary full page loads.</p>
+
+<p><a href="http://www.youtube.com/watch?v=CKv9C2qUL-8" title="Title">Tutorial</a></p>
+
+<h3>Using the gem</h3>
+
+<p>Gemfile:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'turbolinks'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add this line on app/assets/javascripts/application.js:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//= require turbolinks</span></code></pre></td></tr></table></div></figure>
+
+
+<p>app/views/layouts/application.html.erb:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+</span><span class='line'>&lt;%= javascript_include_tag "application", "data-turbolinks-track" => true %></span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you wont use Turbolink in some link, you can manually exclude:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="http://ptarcode.github.io/examples" data-no-turbolink>Examples&lt;/a></span></code></pre></td></tr></table></div></figure>
+
+
+<p>&ldquo;With Turbolinks pages will change without a full reload, so you can&rsquo;t rely on DOMContentLoaded or jQuery.ready() to trigger your code. Instead Turbolinks fires events on document to provide hooks into the lifecycle of the page.&rdquo;
+Runtime Dependencies coffee-rails, but if you want use javascript.You can manually download and compile the turbolinks.js.coffee to JavaScript.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ready = ->
+</span><span class='line'>
+</span><span class='line'>  ...your coffeescript goes here...
+</span><span class='line'>
+</span><span class='line'>$(document).ready(ready)
+</span><span class='line'>$(document).on('page:load', ready)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var ready;
+</span><span class='line'>ready = function() {
+</span><span class='line'>
+</span><span class='line'>  ...your javascript goes here...
+</span><span class='line'>
+</span><span class='line'>};
+</span><span class='line'>
+</span><span class='line'>$(document).ready(ready);
+</span><span class='line'>$(document).on('page:load', ready);</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Links</h3>
+
+<p><a href="https://github.com/rails/turbolinks" title="Turbolinks Project">Turbolinks Project</a></p>
+
+<p><a href="http://railscasts.com/episodes/390-turbolinks" title="Railscasts Turbolinks">Railscasts Turbolinks</a></p>
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Clima tempo module for Node.js]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/09/09/clima-tempo-module-for-node-dot-js/"/>
+    <updated>2013-09-09T11:33:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/09/09/clima-tempo-module-for-node-dot-js</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h3>version : 0.0.9</h3>
+
+<p>Communication with Clima Tempo accessing information about the weather of Brazil.</p>
+
+<h2>Installation</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>npm install clima-tempo</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Usage</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var clima = require(clima-tempo);
+</span><span class='line'>           
+</span><span class='line'>      var callback = function(error, result) {
+</span><span class='line'>          if (error) {
+</span><span class='line'>              console.error(error);
+</span><span class='line'>          }
+</span><span class='line'>          else{
+</span><span class='line'>              ......
+</span><span class='line'>          }
+</span><span class='line'>      }</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>.days</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//type = Default or  Extended
+</span><span class='line'>      clima.days(codCity,"Extended",callback);</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>return</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[ { dia: '2013-09-09',
+</span><span class='line'>          tempo: 'Parcialmente Nublado',
+</span><span class='line'>          maxima: '30',
+</span><span class='line'>          minima: '17' },
+</span><span class='line'>        { dia: '2013-09-10',
+</span><span class='line'>          tempo: undefined,
+</span><span class='line'>          maxima: '29',
+</span><span class='line'>          minima: '18' },
+</span><span class='line'>        { dia: '2013-09-11',
+</span><span class='line'>          tempo: 'Parcialmente Nublado',
+</span><span class='line'>          maxima: '29',
+</span><span class='line'>          minima: '18' },
+</span><span class='line'>        { dia: '2013-09-12',
+</span><span class='line'>          tempo: 'Parcialmente Nublado',
+</span><span class='line'>          maxima: '29',
+</span><span class='line'>          minima: '18' },
+</span><span class='line'>        { dia: '2013-09-13',
+</span><span class='line'>          tempo: 'Parcialmente Nublado',
+</span><span class='line'>          maxima: '29',
+</span><span class='line'>          minima: '17' },
+</span><span class='line'>        { dia: '2013-09-14',
+</span><span class='line'>          tempo: 'Parcialmente Nublado',
+</span><span class='line'>          maxima: '29',
+</span><span class='line'>          minima: '17' },
+</span><span class='line'>        { dia: '2013-09-15',
+</span><span class='line'>          tempo: 'Parcialmente Nublado',
+</span><span class='line'>          maxima: '29',
+</span><span class='line'>          minima: '17' } ]</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>.nowFromPage</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>clima.nowFromPage('3156',callback);</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>return</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{ last_update: 'Atualizado às: 18:00 ',
+</span><span class='line'>          wind: { velocity: '22 Km/h', direction: 'Nor-nordeste' },
+</span><span class='line'>          moisture: '83%',
+</span><span class='line'>          condition: 'Alguma nebulosidade',
+</span><span class='line'>          pression: '1011 hPa',
+</span><span class='line'>          temperature: '23ºC' }</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>.fullFromPage</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>clima.fullFromPage('3156',callback);</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>return</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[ { last_update: 'Previsão do tempo atualizada às: 19:40 ',
+</span><span class='line'>          date: ' Quarta-Feira, 04/09 ',
+</span><span class='line'>          condition: 'Chuvoso durante o dia e a noite',
+</span><span class='line'>          wind: 'NNE8km/h',
+</span><span class='line'>          probability_of_precipitation: '26mm90%',
+</span><span class='line'>          moisture_relative_complete: { max: '90%', min: '50%' },
+</span><span class='line'>          temperature: { max: '27º', min: ' 21º ' },
+</span><span class='line'>          uv: 'Alto',
+</span><span class='line'>          sunrise: '06h43',
+</span><span class='line'>          sunset: '18h26' },
+</span><span class='line'>        { last_update: 'Previsão do tempo atualizada às: 19:40 ',
+</span><span class='line'>          date: ' Quinta-Feira, 05/09 ',
+</span><span class='line'>          condition: 'Sol com algumas nuvens. Não chove.',
+</span><span class='line'>          wind: 'S9km/h',
+</span><span class='line'>          probability_of_precipitation: '0mm0%',
+</span><span class='line'>          moisture_relative_complete: { max: '93%', min: '52%' },
+</span><span class='line'>          temperature: { max: '28º', min: ' 17º ' },
+</span><span class='line'>          uv: 'Extremo',
+</span><span class='line'>          sunrise: '06h42',
+</span><span class='line'>          sunset: '18h26' },
+</span><span class='line'>        { last_update: 'Previsão do tempo atualizada às: 19:40 ',
+</span><span class='line'>          date: ' Sexta-Feira, 06/09 ',
+</span><span class='line'>          condition: 'Sol com algumas nuvens. Não chove.',
+</span><span class='line'>          wind: 'ESE12km/h',
+</span><span class='line'>          probability_of_precipitation: '0mm0%',
+</span><span class='line'>          moisture_relative_complete: { max: '91%', min: '50%' },
+</span><span class='line'>          temperature: { max: '30º', min: ' 16º ' },
+</span><span class='line'>          uv: 'Extremo',
+</span><span class='line'>          sunrise: '06h41',
+</span><span class='line'>          sunset: '18h27' },
+</span><span class='line'>        { last_update: 'Previsão do tempo atualizada às: 19:40 ',
+</span><span class='line'>          date: ' Sábado, 07/09 ',
+</span><span class='line'>          condition: 'Sol com algumas nuvens. Não chove.',
+</span><span class='line'>          wind: 'ESE11km/h',
+</span><span class='line'>          probability_of_precipitation: '0mm0%',
+</span><span class='line'>          moisture_relative_complete: { max: '91%', min: '51%' },
+</span><span class='line'>          temperature: { max: '29º', min: ' 20º ' },
+</span><span class='line'>          uv: 'Extremo',
+</span><span class='line'>          sunrise: '06h40',
+</span><span class='line'>          sunset: '18h27' },
+</span><span class='line'>        { last_update: 'Previsão do tempo atualizada às: 19:40 ',
+</span><span class='line'>          date: 'Domingo, 08/09',
+</span><span class='line'>          condition: 'Sol e aumento de nuvens de manhã. Pancadas de chuva à tarde e à noite.',
+</span><span class='line'>          wind: 'E11km/h',
+</span><span class='line'>          probability_of_precipitation: '5mm80%',
+</span><span class='line'>          moisture_relative_complete: { max: '90%', min: '49%' },
+</span><span class='line'>          temperature: { max: '32º', min: ' 18º ' },
+</span><span class='line'>          uv: 'Muito Alto',
+</span><span class='line'>          sunrise: '06h39',
+</span><span class='line'>          sunset: '18h27' } ]</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>.trendsFromPage</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>clima.trendsFromPage('3156',callback);
+</span><span class='line'>
+</span><span class='line'>      [ { date: 'Domingo, 08/09',
+</span><span class='line'>          condition: 'Sol e aumento de nuvens de manhã. Pancadas de chuva à tarde e à noite.',
+</span><span class='line'>          probability_of_precipitation: '23mm80%',
+</span><span class='line'>          temperature: { max: '33º', min: '33º' } },
+</span><span class='line'>        { date: 'Segunda-Feira, 09/09',
+</span><span class='line'>          condition: 'Sol e aumento de nuvens de manhã. Pancadas de chuva à tarde e à noite.',
+</span><span class='line'>          probability_of_precipitation: '2mm80%',
+</span><span class='line'>          temperature: { max: '34º', min: '34º' } },
+</span><span class='line'>        { date: 'Terça-Feira, 10/09',
+</span><span class='line'>          condition: 'Sol com algumas nuvens. Não chove.',
+</span><span class='line'>          probability_of_precipitation: '0mm0%',
+</span><span class='line'>          temperature: { max: '34º', min: '34º' } },
+</span><span class='line'>        { date: 'Quarta-Feira, 11/09',
+</span><span class='line'>          condition: 'Sol com algumas nuvens. Não chove.',
+</span><span class='line'>          probability_of_precipitation: '0mm0%',
+</span><span class='line'>          temperature: { max: '36º', min: '36º' } },
+</span><span class='line'>        { date: 'Quinta-Feira, 12/09',
+</span><span class='line'>          condition: 'Sol com aumento de nuvens ao longo do dia. À noite ocorrem pancadas de chuva.',
+</span><span class='line'>          probability_of_precipitation: '3mm80%',
+</span><span class='line'>          temperature: { max: '37º', min: '37º' } } ]</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Dependencies</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cherrio       : ">=0.12.1",
+</span><span class='line'>    libxml-to-js  : ">=0.3.11",
+</span><span class='line'>    xmlhttprequest: ">=1.6.0"</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Writing and Publishing Node.js Modules]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/"/>
+    <updated>2013-09-03T08:02:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h2>Write</h2>
+
+<p>If you have a library and you want to share with the other programs, it&rsquo;s time to create a module. It&rsquo;s very simple but you have to known some rules.</p>
+
+<h3>Structure</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-example-module
+</span><span class='line'>  -lib
+</span><span class='line'>      example-modules.js
+</span><span class='line'>  -node-modules
+</span><span class='line'>      -example-dependencies
+</span><span class='line'>  -tests
+</span><span class='line'>      test-something.js
+</span><span class='line'>  LICENSE
+</span><span class='line'>  package.json
+</span><span class='line'>  README.md</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>lib</h4>
+
+<p>This folder contains all the files responsible for the functionality of your module.</p>
+
+<h4>node-modules</h4>
+
+<p>This folder contains all the dependencies(other modules) used to implementation. This is created automatically when you install some modude.</p>
+
+<h4>tests</h4>
+
+<p>Contains all tests arquives to test your module.</p>
+
+<h4>LICENSE</h4>
+
+<p>This file contains all informations about the license of module.</p>
+
+<h4>package.json</h4>
+
+<p>This is the most important file, allows to see all information about this module, structure, owner e etc.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>  "name": "example-module",
+</span><span class='line'>  "description": "This simple example how create a module",
+</span><span class='line'>  "version": "0.0.1",
+</span><span class='line'>  "author": {
+</span><span class='line'>    "name": "Example Module",
+</span><span class='line'>    "email": "ezample@module.com"
+</span><span class='line'>  },
+</span><span class='line'>  "keywords": [
+</span><span class='line'>    "example",
+</span><span class='line'>    "module",
+</span><span class='line'>    "how to"
+</span><span class='line'>  ],
+</span><span class='line'>  "contributors": [
+</span><span class='line'>    {
+</span><span class='line'>      "name": "Friend1",
+</span><span class='line'>      "email": "friend1@node.net"
+</span><span class='line'>    }
+</span><span class='line'>  ],
+</span><span class='line'>  "repository": {
+</span><span class='line'>    "type": "git",
+</span><span class='line'>    "url": "git://github.com/example-module/example-module.git"
+</span><span class='line'>  },
+</span><span class='line'>  "bugs": {
+</span><span class='line'>    "mail": "bugs@node.com",
+</span><span class='line'>    "url": "http://github.com/fb55/example-module/issues"
+</span><span class='line'>  },
+</span><span class='line'>  "directories": {
+</span><span class='line'>    "lib": "lib/"
+</span><span class='line'>  },
+</span><span class='line'>  "main": "lib/index.js",
+</span><span class='line'>  "scripts": {
+</span><span class='line'>    "test": "tests/test-something.js"
+</span><span class='line'>  },
+</span><span class='line'>  "dependencies": {
+</span><span class='line'>    "example-dependencies": "2.0"
+</span><span class='line'>  },
+</span><span class='line'>  "licenses": [
+</span><span class='line'>    {
+</span><span class='line'>      "type": "MIT",
+</span><span class='line'>      "url": "http://github.com/example-module/example-module/raw/master/LICENSE"
+</span><span class='line'>    }
+</span><span class='line'>  ],
+</span><span class='line'>  "readme": "Here you can put your readme in one string"
+</span><span class='line'>  "_id": "example-module@0.0.1",
+</span><span class='line'>  "_from": "example-module@0.0.1"
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>README.md</h4>
+
+<p>This is a markdown file, contains all information how to use de module, version and example the code.</p>
+
+<h2>Publish</h2>
+
+<h3>NPM REGISTRY</h3>
+
+<p>First you have to go to <a href="https://npmjs.org/signup">https://npmjs.org/signup</a> and create account and user.</p>
+
+<h3>npm adduser</h3>
+
+<p>Now you need add user to publish your module.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>npm adduser
+</span><span class='line'> 
+</span><span class='line'>Username: example
+</span><span class='line'>Password: 
+</span><span class='line'>Email: example@node.com</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>npm publish</h3>
+
+<p>Now you have to go to root of your module and use this command.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>npm publish</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now your module was published and you can download from npm and install in other project.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Blocks, Procs e Lambdas]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/"/>
+    <updated>2013-08-21T22:35:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h2>Blocks</h2>
+
+<p>Writing methods that can accept blocks is simple. There&rsquo;s no special syntax needed, you can simply write the method as you would any other. To call any block passed to the method, use the yield keyword. Like any other method call, when you use the yield keyword you can leave it as it is and call the block without any parameters. Or, if you wish, you can add a parameter list as you would with a method call.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def call_this_block
+</span><span class='line'>  yield
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>call_this_block { puts "tweet" }</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Optional Block</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Optional
+</span><span class='line'>  def initialize
+</span><span class='line'>     yield self if block_given?
+</span><span class='line'>  end
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Procs</h2>
+
+<p>Proc objects are blocks of code that have been bound to a set of local variables. Once bound, the code may be called in different contexts and still access those variables.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def gen_times(factor)
+</span><span class='line'>  return Proc.new {|n| n*factor }
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>times3 = gen_times(3)
+</span><span class='line'>times5 = gen_times(5)
+</span><span class='line'>
+</span><span class='line'>times3.call(12)               #=> 36
+</span><span class='line'>times5.call(5)                #=> 25
+</span><span class='line'>times3.call(times5.call(4))   #=> 60</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Lambdas</h2>
+
+<p>You may have heard of lambdas before. Perhaps you&rsquo;ve used them in other languages. Despite the fancy name, a lambda is just a function&hellip; peculiarly&hellip; without a name. They&rsquo;re anonymous, little functional spies sneaking into the rest of your code. Lambdas in Ruby are also objects, just like everything else! The last expression of a lambda is its return value, just like regular functions. As boring and familiar as that all sounds, it gives us a lot of power.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>my_proc = lambda { puts "tweet" }
+</span><span class='line'>my_proc.call # => tweet</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Multiple Lambdas</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class Comment
+</span><span class='line'>  def post(
+</span><span class='line'>      if authenticate?(@user, @password)
+</span><span class='line'>          # submit the comment
+</span><span class='line'>          success
+</span><span class='line'>          success.call
+</span><span class='line'>      else
+</span><span class='line'>          error.call
+</span><span class='line'>      end
+</span><span class='line'>  end
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>comment   = Comment.new('Yeeeeeep!')
+</span><span class='line'>success = -> { puts "Sent!" }
+</span><span class='line'>error   = -> { raise 'Auth Error' }
+</span><span class='line'>comment.post(success, error)</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Lambda to Block</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>blablas = ["First", "Second"]
+</span><span class='line'>blablas.each do |blabla|
+</span><span class='line'>puts blabla                   #Lets try converting to a proc
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'>blablas = ["First", "Second"]
+</span><span class='line'>printer = lambda { |blabla| puts blabla }
+</span><span class='line'>
+</span><span class='line'>blablas.each(&printer)       
+</span><span class='line'>
+</span><span class='line'>#‘&’ turns proc into block 
+</span><span class='line'>#because each expects a block, not a proc</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gem agendare-schedule]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/08/17/gem-agendare-schedule/"/>
+    <updated>2013-08-17T12:22:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/08/17/gem-agendare-schedule</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<p><a href="http://badge.fury.io/rb/agendare-schedule"><img src="https://badge.fury.io/rb/agendare-schedule.png" alt="Gem Version" /></a></p>
+
+<p>The basic structure to implement schedule project. You have 3 objects to implement yours views, because the logic is implemented in this gem.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application&rsquo;s Gemfile:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'agendare-schedule'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then execute:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Usage</h2>
+
+<p>Create controlllers.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails  generate agendare:install controllers</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create models.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails  generate agendare:install models</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create migrations.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails  generate agendare:install migrations</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Import the structure to database.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake db:migrate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add this lines in your config/routes.rb</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>resources :schedules
+</span><span class='line'>   resources :scheduleds
+</span><span class='line'>   resources :users</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gem previsao-clima-tempo]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/"/>
+    <updated>2013-08-17T00:00:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<p><a href="http://badge.fury.io/rb/previsao-clima-tempo"><img src="https://badge.fury.io/rb/previsao-clima-tempo.png" alt="Gem Version" /></a></p>
+
+<p>Communication with Clima Tempo accessing information about the weather of Brazil.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application&rsquo;s Gemfile:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'previsao-clima-tempo'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And then execute:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Or install it yourself as:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem install previsao-clima-tempo</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Usage</h2>
+
+<h3>From Webservice</h3>
+
+<h5>.new</h5>
+
+<p>Instantiating a object.The city code should be informed.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156')</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.now</h5>
+
+<p>Returns an object PrevisaoDia with information from the current day.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').now</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.tomorrow</h5>
+
+<p>Returns an object PrevisaoDia with information the next day.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').tomorrow</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.days</h5>
+
+<p>Returns a collection of objects PrevisaoDia with information of days referenced.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').days(13) maximum of 13 days from the current day</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.day</h5>
+
+<p>Returns an object PrevisaoDia with information the day referenced.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').day(date)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>From Page</h3>
+
+<h4>(contains more information than is extracted from the webservice)</h4>
+
+<h5>.nowFromPage</h5>
+
+<p>Returns a hash of condtions of weather from page</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').nowFromPage</span></code></pre></td></tr></table></div></figure>
+
+
+<p>return:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>      :last_update: 18:00
+</span><span class='line'>      :wind:
+</span><span class='line'>        :velocity: 3 Km/h
+</span><span class='line'>        :direction: Su-sudeste
+</span><span class='line'>      :moisture: 91%
+</span><span class='line'>      :condition: Poucas nuvens
+</span><span class='line'>      :pression: 1022 hPa
+</span><span class='line'>      :temperature: 13ºC  
+</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.fullFromPage</h5>
+
+<p>Returns a hash of condtions of weather whith 5 days from page.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').fullFromPage</span></code></pre></td></tr></table></div></figure>
+
+
+<p>return:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>      1:
+</span><span class='line'>        :last_update: 19:00
+</span><span class='line'>        :date: Sábado, 17/08/2013
+</span><span class='line'>        :condition: Sol com muitas nuvens durante o dia e períodos de céu nublado. Noite
+</span><span class='line'>          com muitas nuvens.
+</span><span class='line'>        :wind:
+</span><span class='line'>          :velocity: 6km/h
+</span><span class='line'>          :direction: Su-sudeste
+</span><span class='line'>        :probability_of_precipitation:
+</span><span class='line'>          :volume: 0mm
+</span><span class='line'>          :percentage: 0%
+</span><span class='line'>        :moisture_relative_complete:
+</span><span class='line'>          :max: 100%
+</span><span class='line'>          :min: 49%
+</span><span class='line'>        :temperature:
+</span><span class='line'>          :max: 16º
+</span><span class='line'>          :min: 7º
+</span><span class='line'>        :uv: Alto
+</span><span class='line'>        :sunrise: 06h13
+</span><span class='line'>        :sunset: 17h36
+</span><span class='line'>      2: ...
+</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>.trendsFromPage</h5>
+
+<p>Returns a hash of condtions of weather whith 5 days from page.
+If today is 16-12-2013 returns 21,22,23,24,25 trends.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').trendsFromPage</span></code></pre></td></tr></table></div></figure>
+
+
+<p>return:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>      1:
+</span><span class='line'>        :date: Quinta-Feira, 22/08/2013
+</span><span class='line'>        :condition: Sol com algumas nuvens. Não chove.
+</span><span class='line'>        :probability_of_precipitation:
+</span><span class='line'>          :volume: 0mm
+</span><span class='line'>          :percentage: 0%
+</span><span class='line'>        :temperature:
+</span><span class='line'>          :max: 23º
+</span><span class='line'>          :min: 7º
+</span><span class='line'>      2: 
+</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Blog + Octopress + GitHub]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/08/11/blog-plus-octopress-plus-github/"/>
+    <updated>2013-08-11T18:04:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/08/11/blog-plus-octopress-plus-github</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h3>Quick Summary for creating and deploying a post</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake new_post["New Post"]
+</span><span class='line'>$ rake generate
+</span><span class='line'>$ git add .
+</span><span class='line'>$ git commit -am "Some comment here." 
+</span><span class='line'>$ git push origin source
+</span><span class='line'>$ rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Installation Process</h3>
+
+<p>Go to the terminal and clone the Octopress repo:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git octopress
+</span><span class='line'>cd octopress</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Check the version of Ruby is 1.9.2. This version is required.</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby --version
+</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>This command installs Octopress</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Deploying to Github</h3>
+
+<p>Create a new Github repository. If you are creating a personal blog create a repo called:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>username.github.com</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After creating the repo, run the following command.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Which is supposed to:</p>
+
+<hr />
+
+<ul>
+<li>init a git repo</li>
+<li>rename the branch from master to source</li>
+<li>add your repo to origin.</li>
+</ul>
+
+
+<hr />
+
+<p>Running the previous command shows this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Enter the read/write url for your repository</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You have to enter it like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git@github.com:username/username.github.com.git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For me it didn’t rename the branch from master to source or add my remote repo. I did it manually (see below)</p>
+
+<h3>Add your remote repo</h3>
+
+<p>Check what remote repositories you have:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git remote -v</span></code></pre></td></tr></table></div></figure>
+
+
+<p>My output was:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>octopress   git://github.com/imathis/octopress.git (fetch)
+</span><span class='line'>octopress   git://github.com/imathis/octopress.git (push)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To add your repo do:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git remote add origin git@github.com:username/username.github.com.git</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Rename the branch from master to source</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$git branch
+</span><span class='line'>* master
+</span><span class='line'>$git branch -m master source
+</span><span class='line'>$git branch
+</span><span class='line'>* source</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Preview on development stage</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then browse to:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>localhost:4000</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you get this error:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Sorry, I cannot find /</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Read this link: Deploying to a Subdirectory</p>
+
+<h3>First push to Github</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$rake generate
+</span><span class='line'>$git add .
+</span><span class='line'>$git commit -am "First deploy to github." 
+</span><span class='line'>$git push origin source
+</span><span class='line'>$rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create a new posting</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$rake new_post["Creating a Github Blog Using Octopress"]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Go to the app folder source/_posts to find the new posting
+Edit the posting and then follow these steps</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$rake generate
+</span><span class='line'>$git add .
+</span><span class='line'>$git commit -m "Initial blog post." 
+</span><span class='line'>$git push origin source
+</span><span class='line'>$rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add a custom domain
+Go to source folder and create 2 files :
+(mate if you are using Textmate)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd source
+</span><span class='line'>mate CNAME
+</span><span class='line'>mate .nojekyll</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Open the CNAMe file and this line:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>www.yourdomain.com</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The NoJekyll file will make Octopress works in Github Pages.
+Push again to github</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate
+</span><span class='line'>git add .
+</span><span class='line'>git add -am 'domain configuration'
+</span><span class='line'>git push origin source
+</span><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Github need time to read your CNAME and updating the sites.</p>
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails 3 generators in gem]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/08/11/rails-3-generators-in-gem/"/>
+    <updated>2013-08-11T18:02:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/08/11/rails-3-generators-in-gem</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h3>This is the folders structure in a gem.</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>lib
+</span><span class='line'>  - generators
+</span><span class='line'>    - gemname
+</span><span class='line'>      install_generator.rb
+</span><span class='line'>      - templates
+</span><span class='line'>        (template files)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Install Generator</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>require 'rails/generators'
+</span><span class='line'>
+</span><span class='line'>module ModuleName
+</span><span class='line'>  module Generators
+</span><span class='line'>    class InstallGenerator &lt; Rails::Generators::NamedBase
+</span><span class='line'>      include Rails::Generators::Migration
+</span><span class='line'>      
+</span><span class='line'>      source_root File.expand_path("../templates", __FILE__)
+</span><span class='line'>      
+</span><span class='line'>      generators...
+</span><span class='line'>      
+</span><span class='line'>      def self.next_migration_number(path)
+</span><span class='line'>          @migration_number = current_migration_number(path) + 1
+</span><span class='line'>          ActiveRecord::Migration.next_migration_number(@migration_number)
+</span><span class='line'>      end
+</span><span class='line'>  
+</span><span class='line'>    end
+</span><span class='line'>   
+</span><span class='line'>  end
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Generators&hellip;</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def generators
+</span><span class='line'>           
+</span><span class='line'>    generate("controller" , "nameOfController")
+</span><span class='line'>    
+</span><span class='line'>    copy_file "fileWantYouCopy.rb"   , "app/models/destiniAndNameToCopiedFile.rb"
+</span><span class='line'>    
+</span><span class='line'>    migration_template("modelOfMigrate.rb"  , "db/migrate/modelOfMigrateDestini.rb")
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>migration_template</h3>
+
+<p>You need add this include to use migration_template</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>include Rails::Generators::Migration</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You need to implement next_migration_number</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def self.next_migration_number(path)
+</span><span class='line'>      @migration_number = current_migration_number(path) + 1
+</span><span class='line'>      ActiveRecord::Migration.next_migration_number(@migration_number)
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+]]></content>
+  </entry>
+  
+</feed>

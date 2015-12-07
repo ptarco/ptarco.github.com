@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Rails | Paulo de Tarço]]></title>
+  <link href="http://ptarcode.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://ptarcode.github.io/"/>
+  <updated>2015-12-07T23:37:49+00:00</updated>
+  <id>http://ptarcode.github.io/</id>
+  <author>
+    <name><![CDATA[Paulo de Tarço]]></name>
+    <email><![CDATA[ptarcode@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rails 4 Turbolinks]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/"/>
+    <updated>2013-11-26T23:36:00+00:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h3>What is it?</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>gem 'turbolinks'
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div>
+&ldquo;This is a gem that works similar to pjax, but instead of worrying about what element on the page to replace, and tailoring the server-side response to fit, we replace the entire body. This means that you get the bulk of the speed benefits from pjax (no recompiling of the JavaScript or CSS) without having to tailor the server-side response. It just works.&rdquo;</p>
+
+<h3>PJAX</h3>
+
+<p>Uses AJAX and PushState to deliver a faster browsing experience by only loading and updating parts of the page HTML each page load. PushState makes it possible to add real permalinks, page titles, and a working back button so that your visitors won&rsquo;t be able to tell the difference between PJAX page load and ordinary full page loads.</p>
+
+<p><a href="http://www.youtube.com/watch?v=CKv9C2qUL-8" title="Title">Tutorial</a></p>
+
+<h3>Using the gem</h3>
+
+<p>Gemfile:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>gem 'turbolinks'
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Add this line on app/assets/javascripts/application.js:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>//= require turbolinks
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>app/views/layouts/application.html.erb:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%= stylesheet_link_tag    &ldquo;application&rdquo;, media: &ldquo;all&rdquo;, &ldquo;data-turbolinks-track&rdquo; => true %>
+</span><span class='line'>&lt;%= javascript_include_tag &ldquo;application&rdquo;, &ldquo;data-turbolinks-track&rdquo; => true %></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>If you wont use Turbolink in some link, you can manually exclude:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a href="http://ptarcode.github.io/examples" data-no-turbolink>Examples&lt;/a></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>&ldquo;With Turbolinks pages will change without a full reload, so you can&rsquo;t rely on DOMContentLoaded or jQuery.ready() to trigger your code. Instead Turbolinks fires events on document to provide hooks into the lifecycle of the page.&rdquo;
+Runtime Dependencies coffee-rails, but if you want use javascript.You can manually download and compile the turbolinks.js.coffee to JavaScript.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ready = &ndash;>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  &hellip;your coffeescript goes here&hellip;&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>$(document).ready(ready)
+</span><span class='line'>$(document).on(&lsquo;page:load&rsquo;, ready)</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var ready;
+</span><span class='line'>ready = function() {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  &hellip;your javascript goes here&hellip;&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>};&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>$(document).ready(ready);
+</span><span class='line'>$(document).on(&lsquo;page:load&rsquo;, ready);&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Links</h3>
+
+<p><a href="https://github.com/rails/turbolinks" title="Turbolinks Project">Turbolinks Project</a></p>
+
+<p><a href="http://railscasts.com/episodes/390-turbolinks" title="Railscasts Turbolinks">Railscasts Turbolinks</a></p>
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gem agendare-schedule]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/08/17/gem-agendare-schedule/"/>
+    <updated>2013-08-17T12:22:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/08/17/gem-agendare-schedule</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<p><a href="http://badge.fury.io/rb/agendare-schedule"><img src="https://badge.fury.io/rb/agendare-schedule.png" alt="Gem Version" /></a></p>
+
+<p>The basic structure to implement schedule project. You have 3 objects to implement yours views, because the logic is implemented in this gem.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application&rsquo;s Gemfile:</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'agendare-schedule'</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<h2>Usage</h2>
+
+<p>Create controlllers.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code> rails  generate agendare:install controllers
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Create models.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code> rails  generate agendare:install models
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Create migrations.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code> rails  generate agendare:install migrations
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Import the structure to database.
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code> rake db:migrate
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Add this lines in your config/routes.rb
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code> resources :schedules
+</span><span class='line'> resources :scheduleds
+</span><span class='line'> resources :users 
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Gem previsao-clima-tempo]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/"/>
+    <updated>2013-08-17T00:00:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<p><a href="http://badge.fury.io/rb/previsao-clima-tempo"><img src="https://badge.fury.io/rb/previsao-clima-tempo.png" alt="Gem Version" /></a></p>
+
+<p>Communication with Clima Tempo accessing information about the weather of Brazil.</p>
+
+<h2>Installation</h2>
+
+<p>Add this line to your application&rsquo;s Gemfile:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>gem 'previsao-clima-tempo'
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>And then execute:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>$ bundle
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Or install it yourself as:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>$ gem install previsao-clima-tempo
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h2>Usage</h2>
+
+<h3>From Webservice</h3>
+
+<h5>.new</h5>
+
+<p>Instantiating a object.The city code should be informed.</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>PrevisaoClimaTempo.new(:codCity => &lsquo;3156&rsquo;)&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code></span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<h5>.now</h5>
+
+<p>Returns an object PrevisaoDia with information from the current day.</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity =&gt; '3156').now</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<h5>.tomorrow</h5>
+
+<p>Returns an object PrevisaoDia with information the next day.</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity =&gt; '3156').tomorrow</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<h5>.days</h5>
+
+<p>Returns a collection of objects PrevisaoDia with information of days referenced.</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity =&gt; '3156').days(13) maximum of 13 days from the current day</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<h5>.day</h5>
+
+<p>Returns an object PrevisaoDia with information the day referenced.</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity =&gt; '3156').day(date)</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<h3>From Page</h3>
+
+<h4>(contains more information than is extracted from the webservice)</h4>
+
+<h5>.nowFromPage</h5>
+
+<p>Returns a hash of condtions of weather from page</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity =&gt; '314').nowFromPage</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>return:</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>    :last_update: 18:00
+</span><span class='line'>    :wind:
+</span><span class='line'>      :velocity: 3 Km/h
+</span><span class='line'>      :direction: Su-sudeste
+</span><span class='line'>    :moisture: 91%
+</span><span class='line'>    :condition: Poucas nuvens
+</span><span class='line'>    :pression: 1022 hPa
+</span><span class='line'>    :temperature: 13ºC  
+</span><span class='line'> }</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<h5>.fullFromPage</h5>
+
+<p>Returns a hash of condtions of weather whith 5 days from page.</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity =&gt; '314').fullFromPage</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>return:</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>    1:
+</span><span class='line'>      :last_update: 19:00
+</span><span class='line'>      :date: Sábado, 17/08/2013
+</span><span class='line'>      :condition: Sol com muitas nuvens durante o dia e períodos de céu nublado. Noite
+</span><span class='line'>        com muitas nuvens.
+</span><span class='line'>      :wind:
+</span><span class='line'>        :velocity: 6km/h
+</span><span class='line'>        :direction: Su-sudeste
+</span><span class='line'>      :probability_of_precipitation:
+</span><span class='line'>        :volume: 0mm
+</span><span class='line'>        :percentage: 0%
+</span><span class='line'>      :moisture_relative_complete:
+</span><span class='line'>        :max: 100%
+</span><span class='line'>        :min: 49%
+</span><span class='line'>      :temperature:
+</span><span class='line'>        :max: 16º
+</span><span class='line'>        :min: 7º
+</span><span class='line'>      :uv: Alto
+</span><span class='line'>      :sunrise: 06h13
+</span><span class='line'>      :sunset: 17h36
+</span><span class='line'>    2: ...
+</span><span class='line'> }</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<h5>.trendsFromPage</h5>
+
+<p>Returns a hash of condtions of weather whith 5 days from page.
+If today is 16-12-2013 returns 21,22,23,24,25 trends.</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity =&gt; '314').trendsFromPage</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>return:</p>
+
+<pre><code> <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>    1:
+</span><span class='line'>      :date: Quinta-Feira, 22/08/2013
+</span><span class='line'>      :condition: Sol com algumas nuvens. Não chove.
+</span><span class='line'>      :probability_of_precipitation:
+</span><span class='line'>        :volume: 0mm
+</span><span class='line'>        :percentage: 0%
+</span><span class='line'>      :temperature:
+</span><span class='line'>        :max: 23º
+</span><span class='line'>        :min: 7º
+</span><span class='line'>    2: 
+</span><span class='line'> }</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails 3 generators in gem]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/08/11/rails-3-generators-in-gem/"/>
+    <updated>2013-08-11T18:02:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/08/11/rails-3-generators-in-gem</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h3>This is the folders structure in a gem.</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>lib
+</span><span class='line'>  &ndash; generators&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>- gemname
+</span><span class='line'>  install_generator.rb
+</span><span class='line'>  - templates
+</span><span class='line'>    (template files)
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Install Generator</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>require &lsquo;rails/generators&rsquo;&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>module ModuleName
+</span><span class='line'>  module Generators&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>class InstallGenerator &lt; Rails::Generators::NamedBase
+</span><span class='line'>  include Rails::Generators::Migration
+</span><span class='line'>
+</span><span class='line'>  source_root File.expand_path("../templates", __FILE__)
+</span><span class='line'>
+</span><span class='line'>  generators...
+</span><span class='line'>
+</span><span class='line'>  def self.next_migration_number(path)
+</span><span class='line'>      @migration_number = current_migration_number(path) + 1
+</span><span class='line'>      ActiveRecord::Migration.next_migration_number(@migration_number)
+</span><span class='line'>  end
+</span><span class='line'>
+</span><span class='line'>end
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  end
+</span><span class='line'>end&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>Generators&hellip;</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def generators&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>generate("controller" , "nameOfController")
+</span><span class='line'>
+</span><span class='line'>copy_file "fileWantYouCopy.rb"   , "app/models/destiniAndNameToCopiedFile.rb"
+</span><span class='line'>
+</span><span class='line'>migration_template("modelOfMigrate.rb"  , "db/migrate/modelOfMigrateDestini.rb")
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>end</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>migration_template</h3>
+
+<p>You need add this include to use migration_template
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>include Rails::Generators::Migration</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>You need to implement next_migration_number
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def self.next_migration_number(path)&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>  @migration_number = current_migration_number(path) + 1
+</span><span class='line'>  ActiveRecord::Migration.next_migration_number(@migration_number)
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>end&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;h2></span></code></pre></td></tr></table></div></figure></notextile></div></h2>
+]]></content>
+  </entry>
+  
+</feed>

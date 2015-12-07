@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Node.js | Paulo de Tarço]]></title>
+  <link href="http://ptarcode.github.io/blog/categories/node-dot-js/atom.xml" rel="self"/>
+  <link href="http://ptarcode.github.io/"/>
+  <updated>2015-12-07T23:37:49+00:00</updated>
+  <id>http://ptarcode.github.io/</id>
+  <author>
+    <name><![CDATA[Paulo de Tarço]]></name>
+    <email><![CDATA[ptarcode@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Writing and Publishing Node.js Modules]]></title>
+    <link href="http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/"/>
+    <updated>2013-09-03T08:02:00+01:00</updated>
+    <id>http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules</id>
+    <content type="html"><![CDATA[<hr />
+
+<!--more-->
+
+
+<h2>Write</h2>
+
+<p>If you have a library and you want to share with the other programs, it&rsquo;s time to create a module. It&rsquo;s very simple but you have to known some rules.</p>
+
+<h3>Structure</h3>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>-example-module&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>-lib
+</span><span class='line'>    example-modules.js
+</span><span class='line'>-node-modules
+</span><span class='line'>    -example-dependencies
+</span><span class='line'>-tests
+</span><span class='line'>    test-something.js
+</span><span class='line'>LICENSE
+</span><span class='line'>package.json
+</span><span class='line'>README.md 
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h4>lib</h4>
+
+<p>This folder contains all the files responsible for the functionality of your module.</p>
+
+<h4>node-modules</h4>
+
+<p>This folder contains all the dependencies(other modules) used to implementation. This is created automatically when you install some modude.</p>
+
+<h4>tests</h4>
+
+<p>Contains all tests arquives to test your module.</p>
+
+<h4>LICENSE</h4>
+
+<p>This file contains all informations about the license of module.</p>
+
+<h4>package.json</h4>
+
+<p>This is the most important file, allows to see all information about this module, structure, owner e etc.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>  &ldquo;name&rdquo;: &ldquo;example-module&rdquo;,
+</span><span class='line'>  &ldquo;description&rdquo;: &ldquo;This simple example how create a module&rdquo;,
+</span><span class='line'>  &ldquo;version&rdquo;: &ldquo;0.0.1&rdquo;,
+</span><span class='line'>  &ldquo;author&rdquo;: {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>"name": "Example Module",
+</span><span class='line'>"email": "ezample@module.com"
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  },
+</span><span class='line'>  &ldquo;keywords&rdquo;: [&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>"example",
+</span><span class='line'>"module",
+</span><span class='line'>"how to"
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  ],
+</span><span class='line'>  &ldquo;contributors&rdquo;: [&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>{
+</span><span class='line'>  "name": "Friend1",
+</span><span class='line'>  "email": "friend1@node.net"
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  ],
+</span><span class='line'>  &ldquo;repository&rdquo;: {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>"type": "git",
+</span><span class='line'>"url": "git://github.com/example-module/example-module.git"
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  },
+</span><span class='line'>  &ldquo;bugs&rdquo;: {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>"mail": "bugs@node.com",
+</span><span class='line'>"url": "http://github.com/fb55/example-module/issues"
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  },
+</span><span class='line'>  &ldquo;directories&rdquo;: {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>"lib": "lib/"
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  },
+</span><span class='line'>  &ldquo;main&rdquo;: &ldquo;lib/index.js&rdquo;,
+</span><span class='line'>  &ldquo;scripts&rdquo;: {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>"test": "tests/test-something.js"
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  },
+</span><span class='line'>  &ldquo;dependencies&rdquo;: {&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>"example-dependencies": "2.0"
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  },
+</span><span class='line'>  &ldquo;licenses&rdquo;: [&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;pre>&lt;code>{
+</span><span class='line'>  "type": "MIT",
+</span><span class='line'>  "url": "http://github.com/example-module/example-module/raw/master/LICENSE"
+</span><span class='line'>}
+</span><span class='line'>&lt;/code>&lt;/pre>
+</span><span class='line'>
+</span><span class='line'>&lt;p>  ],
+</span><span class='line'>  &ldquo;readme&rdquo;: &ldquo;Here you can put your readme in one string&rdquo;
+</span><span class='line'>  &ldquo;&lt;em>id&rdquo;: &ldquo;&lt;a href="&#109;&#x61;&#x69;&#x6c;&#116;&#x6f;&#58;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#101;&#x2d;&#109;&#111;&#100;&#x75;&#x6c;&#101;&#64;&#x30;&#46;&#x30;&#x2e;&#49;">&#101;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#45;&#x6d;&#111;&#100;&#x75;&#x6c;&#x65;&#x40;&#x30;&#46;&#x30;&#46;&#49;&lt;/a>&rdquo;,
+</span><span class='line'>  &ldquo;&lt;/em>from&rdquo;: &ldquo;&lt;a href="&#x6d;&#x61;&#105;&#108;&#x74;&#111;&#x3a;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#45;&#109;&#x6f;&#x64;&#117;&#x6c;&#101;&#64;&#48;&#x2e;&#x30;&#x2e;&#49;">&#101;&#120;&#x61;&#109;&#112;&#108;&#101;&#45;&#x6d;&#x6f;&#100;&#117;&#108;&#101;&#x40;&#48;&#46;&#x30;&#46;&#49;&lt;/a>&rdquo;
+</span><span class='line'>}&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h4>README.md</h4>
+
+<p>This is a markdown file, contains all information how to use de module, version and example the code.</p>
+
+<h2>Publish</h2>
+
+<h3>NPM REGISTRY</h3>
+
+<p>First you have to go to <a href="https://npmjs.org/signup">https://npmjs.org/signup</a> and create account and user.</p>
+
+<h3>npm adduser</h3>
+
+<p>Now you need add user to publish your module.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>npm adduser&lt;/p>
+</span><span class='line'>
+</span><span class='line'>&lt;p>Username: example
+</span><span class='line'>Password:
+</span><span class='line'>Email: &lt;a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#58;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#101;&#x40;&#110;&#111;&#100;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#x65;&#x78;&#x61;&#109;&#x70;&#108;&#101;&#64;&#x6e;&#111;&#x64;&#x65;&#46;&#99;&#111;&#x6d;&lt;/a></span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<h3>npm publish</h3>
+
+<p>Now you have to go to root of your module and use this command.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>npm publish</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Now your module was published and you can download from npm and install in other project.</p>
+]]></content>
+  </entry>
+  
+</feed>
