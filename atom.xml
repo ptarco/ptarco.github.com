@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo de Tarço]]></title>
   <link href="http://ptarcode.github.io/atom.xml" rel="self"/>
   <link href="http://ptarcode.github.io/"/>
-  <updated>2016-02-10T14:12:01-02:00</updated>
+  <updated>2016-02-10T16:41:19-02:00</updated>
   <id>http://ptarcode.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -205,13 +205,87 @@ Eshell V7.2  (abort with ^G)
 </span><span class='line'>-64129</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Examples:</p>
+<h4>Variables</h4>
 
-<h5>pstricks    <a href="http://latex2html5.com/examples/pstricks.html">http://latex2html5.com/examples/pstricks.html</a></h5>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>19> V=3 .
+</span><span class='line'>3</span></code></pre></td></tr></table></div></figure>
 
-<h5>interactive <a href="http://latex2html5.com/examples/interactive.html">http://latex2html5.com/examples/interactive.html</a></h5>
 
-<h5>graphs      <a href="http://latex2html5.com/examples/graphs.html">http://latex2html5.com/examples/graphs.html</a></h5>
+<p>Variable can&rsquo;t be signed with a new value.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>20> V=4 .
+</span><span class='line'>** exception error: no match of right hand side value 4
+</span><span class='line'>21> 
+</span><span class='line'>
+</span><span class='line'>21> V2= V*4 .
+</span><span class='line'>12
+</span><span class='line'>22> V2 .
+</span><span class='line'>12</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Show bounded variables <strong>b() . </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>23> b() .
+</span><span class='line'>V = 3
+</span><span class='line'>V2 = 12
+</span><span class='line'>ok</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Clearing bounded variables <strong>f(variable) . </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>23> b() .
+</span><span class='line'>V = 3
+</span><span class='line'>V2 = 12
+</span><span class='line'>ok
+</span><span class='line'>24> f(V) .
+</span><span class='line'>ok
+</span><span class='line'>25> b() . 
+</span><span class='line'>V2 = 12
+</span><span class='line'>ok</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Clearing all bounded variables <strong>f() . </strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>23> b() .
+</span><span class='line'>V = 3
+</span><span class='line'>V2 = 12
+</span><span class='line'>ok
+</span><span class='line'>24> f() .
+</span><span class='line'>ok
+</span><span class='line'>25> b() .
+</span><span class='line'>ok</span></code></pre></td></tr></table></div></figure>
+
 ]]></content>
   </entry>
   
