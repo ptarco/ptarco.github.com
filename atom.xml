@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo de Tarço]]></title>
   <link href="http://ptarcode.github.io/atom.xml" rel="self"/>
   <link href="http://ptarcode.github.io/"/>
-  <updated>2015-12-08T01:03:07+00:00</updated>
+  <updated>2016-02-10T14:12:01-02:00</updated>
   <id>http://ptarcode.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -14,9 +14,211 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Erlang Basics]]></title>
+    <link href="http://ptarcode.github.io/blog/2016/02/07/erlang-basics/"/>
+    <updated>2016-02-07T20:07:00-02:00</updated>
+    <id>http://ptarcode.github.io/blog/2016/02/07/erlang-basics</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang&rsquo;s runtime system has built-in support for concurrency, distribution and fault tolerance.</p>
+
+<h3>History</h3>
+
+<p>The name &ldquo;Erlang&rdquo;, attributed to Bjarne Däcker, has been presumed by those working on the telephony switches (for whom the language was designed) to be a reference to Danish mathematician and engineer Agner Krarup Erlang or the ubiquitous use of the unit named for him, and (initially at least) simultaneously as a syllabic abbreviation of &ldquo;Ericsson Language&rdquo;.</p>
+
+<h5>1982 &ndash; 1985</h5>
+
+<p>Experiments with programming of telecom using > 20 different languages. Conclusion: The language must be a very high level symbolic language in order to achive productivity gains ! (Leaves us with: Lisp , Prolog , Parlog &hellip;)</p>
+
+<h5>1985 &ndash; 1986</h5>
+
+<p>Experiments with Lisp,Prolog, Parlog etc. Conclusion: The language must contain primitives for concurrency and error recovery, and the execution model must not have back-tracking. (Rules out Lisp and Prolog.) It must also have a granularity of concurrency such that one asyncronous telephony process is represented by one process in the language. Rules out Parlog. We must therefore develop our own language with the desirable features of Lisp, Prolog and Parlog, but with concurrency and error recovery built into the language.</p>
+
+<h5>1987</h5>
+
+<p>The first experiments with Erlang.</p>
+
+<h5>1988</h5>
+
+<p>ACS/Dunder Phase 1. Prototype construction of PABX functionality by external users Erlang escapes from the lab!</p>
+
+<h5>1989</h5>
+
+<p>ACS/Dunder Phase 2. Reconstruction of 1/10 of the complete MD-110 system. Results: >> 10 times greater gains in efficency at construction compared with construction in PLEX!Further experiments with a fast implementation of Erlang.</p>
+
+<h5>1990</h5>
+
+<p>Erlang is presented at ISS&#8217;90, which results in several new users, e.g Bellcore.</p>
+
+<h5>1991</h5>
+
+<p>Fast implementation of Erlang is released to users. Erlang is represented at Telecom&#8217;91 . More functionality such as ASN1 &ndash; Compiler , graphical interface etc.</p>
+
+<h5>1992</h5>
+
+<p>A lot of new users, e.g several RACE projects. Erlang is ported to VxWorks, PC, Macintosh etc. Three applications using Erlang are presented at ISS&#8217;92. The two first product projects using Erlang are started.</p>
+
+<h5>1993</h5>
+
+<p>Distribution is added to Erlang, which makes it possible to run a homgeneous Erlang system on a heterogeneous hardware. Decision to sell implementations Erlang externally. Separate organization in Ericsson started to maintain and support Erlang implementations and Erlang Tools.</p>
+
+<h3>Installation</h3>
+
+<p>Erlang Solutions offers a number of installs at <a href="http://www.erlang.org/downloads.">http://www.erlang.org/downloads.</a>
+Erlang/OTP Platform is a complex system composed of many smaller applications (modules). Installing the erlang package automatically installs the entire OTP suite. Since some of the more advanced users might want to download only a specific selection of modules, Erlang/OTP has been divided into smaller packages, all with the prefix &lsquo;erlang-&rsquo;, that can be installed without launching the erlang package.</p>
+
+<p>Most OS package managers provide pre-built binary packages. You can also download the latest stable releases from Erlang Solutions or try install with package managers.</p>
+
+<pre><code>For Homebrew on OS X: brew install erlang
+For MacPorts on OS X: port install erlang
+For Ubuntu and Debian: apt-get install erlang
+For Fedora: yum install erlang
+For FreeBSD: pkg install erlang
+</code></pre>
+
+<h3>Shell</h3>
+
+<p>On Windows command line type <strong>werl</strong> on Linux or Mac OS X type <strong>erl</strong>.</p>
+
+<pre><code>Erlang/OTP 18 [erts-7.2] [source-e6dd627] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
+
+Eshell V7.2  (abort with ^G)
+1&gt;
+</code></pre>
+
+<h4>Browsing the archives</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pwd(). 
+</span><span class='line'>/Users/ptarcode 
+</span><span class='line'>ok</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Argument in parentheses but in quotes, preferably double quotes.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>5> cd("..").
+</span><span class='line'>/Users
+</span><span class='line'>ok
+</span><span class='line'>6> cd("ptarcode"). /Users/ptarcode
+</span><span class='line'>ok
+</span><span class='line'>7></span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Doing &hellip;</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Eshell V5.9 (abort with ^G) 1> 2+2.
+</span><span class='line'>4
+</span><span class='line'>2> 39-9.
+</span><span class='line'>30
+</span><span class='line'>3> 10*43.
+</span><span class='line'>430
+</span><span class='line'>4> 100 div 15.
+</span><span class='line'>6
+</span><span class='line'>6> 100 rem 15.
+</span><span class='line'>10
+</span><span class='line'>7> 3*(5+3).
+</span><span class='line'>24</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Functions &hellip;</h4>
+
+<p>Mathematical functions supported by Erlang’s math module simple examples.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>4> math:pi(). 
+</span><span class='line'>3.141592653589793
+</span><span class='line'>
+</span><span class='line'>5> math:cos(math:pi()).
+</span><span class='line'>-1.0</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Numbers</h4>
+
+<p>Erlang recognizes integers and floating-point numbers. Uses the 64-bit IEEE 754-1985 “double precision” representation. This means that it keeps track of about 15 decimal digits plus an exponent.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>7> 8888888888888888888888888888888888888888888.0. 
+</span><span class='line'>8.888888888888889e42
+</span><span class='line'>
+</span><span class='line'>9> 88888888888.88888888888888 .
+</span><span class='line'>88888888888.88889</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Digits+Exponent notation</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>7> 2.923e127. 2.923e127
+</span><span class='line'>8> 7.6345435e-231. 7.6345435e-231</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Base2+Value notation</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>11> 2#10101. 
+</span><span class='line'>21
+</span><span class='line'>12> -2#10101. 
+</span><span class='line'>-21</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Base16+Value notation</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>16> 16#fa81.
+</span><span class='line'>64129
+</span><span class='line'>17> -16#fa81.
+</span><span class='line'>-64129</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Examples:</p>
+
+<h5>pstricks    <a href="http://latex2html5.com/examples/pstricks.html">http://latex2html5.com/examples/pstricks.html</a></h5>
+
+<h5>interactive <a href="http://latex2html5.com/examples/interactive.html">http://latex2html5.com/examples/interactive.html</a></h5>
+
+<h5>graphs      <a href="http://latex2html5.com/examples/graphs.html">http://latex2html5.com/examples/graphs.html</a></h5>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Latex to Html]]></title>
     <link href="http://ptarcode.github.io/blog/2015/04/26/latex-to-html/"/>
-    <updated>2015-04-26T18:51:00+01:00</updated>
+    <updated>2015-04-26T18:51:00-03:00</updated>
     <id>http://ptarcode.github.io/blog/2015/04/26/latex-to-html</id>
     <content type="html"><![CDATA[<!--more-->
 
@@ -175,7 +377,7 @@ You can put LATEX inside of the current page within a script tag with the type s
   <entry>
     <title type="html"><![CDATA[First peripheral only with radio static.]]></title>
     <link href="http://ptarcode.github.io/blog/2015/04/26/first-peripheral-only-with-radio-static/"/>
-    <updated>2015-04-26T00:08:00+01:00</updated>
+    <updated>2015-04-26T00:08:00-03:00</updated>
     <id>http://ptarcode.github.io/blog/2015/04/26/first-peripheral-only-with-radio-static</id>
     <content type="html"><![CDATA[<hr />
 
@@ -217,7 +419,7 @@ You can put LATEX inside of the current page within a script tag with the type s
   <entry>
     <title type="html"><![CDATA[Rails 4 Turbolinks]]></title>
     <link href="http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/"/>
-    <updated>2013-11-26T23:36:00+00:00</updated>
+    <updated>2013-11-26T23:36:00-02:00</updated>
     <id>http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks</id>
     <content type="html"><![CDATA[<hr />
 
@@ -318,7 +520,7 @@ Runtime Dependencies coffee-rails, but if you want use javascript.You can manual
   <entry>
     <title type="html"><![CDATA[Clima tempo module for Node.js]]></title>
     <link href="http://ptarcode.github.io/blog/2013/09/09/clima-tempo-module-for-node-dot-js/"/>
-    <updated>2013-09-09T11:33:00+01:00</updated>
+    <updated>2013-09-09T11:33:00-03:00</updated>
     <id>http://ptarcode.github.io/blog/2013/09/09/clima-tempo-module-for-node-dot-js</id>
     <content type="html"><![CDATA[<hr />
 
@@ -624,7 +826,7 @@ Runtime Dependencies coffee-rails, but if you want use javascript.You can manual
   <entry>
     <title type="html"><![CDATA[Writing and Publishing Node.js Modules]]></title>
     <link href="http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/"/>
-    <updated>2013-09-03T08:02:00+01:00</updated>
+    <updated>2013-09-03T08:02:00-03:00</updated>
     <id>http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules</id>
     <content type="html"><![CDATA[<hr />
 
@@ -816,7 +1018,7 @@ Runtime Dependencies coffee-rails, but if you want use javascript.You can manual
   <entry>
     <title type="html"><![CDATA[Blocks, Procs e Lambdas]]></title>
     <link href="http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/"/>
-    <updated>2013-08-21T22:35:00+01:00</updated>
+    <updated>2013-08-21T22:35:00-03:00</updated>
     <id>http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas</id>
     <content type="html"><![CDATA[<hr />
 
@@ -962,7 +1164,7 @@ Runtime Dependencies coffee-rails, but if you want use javascript.You can manual
   <entry>
     <title type="html"><![CDATA[Gem agendare-schedule]]></title>
     <link href="http://ptarcode.github.io/blog/2013/08/17/gem-agendare-schedule/"/>
-    <updated>2013-08-17T12:22:00+01:00</updated>
+    <updated>2013-08-17T12:22:00-03:00</updated>
     <id>http://ptarcode.github.io/blog/2013/08/17/gem-agendare-schedule</id>
     <content type="html"><![CDATA[<hr />
 
@@ -1030,7 +1232,7 @@ Runtime Dependencies coffee-rails, but if you want use javascript.You can manual
   <entry>
     <title type="html"><![CDATA[Gem previsao-clima-tempo]]></title>
     <link href="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/"/>
-    <updated>2013-08-17T00:00:00+01:00</updated>
+    <updated>2013-08-17T00:00:00-03:00</updated>
     <id>http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo</id>
     <content type="html"><![CDATA[<hr />
 
@@ -1243,7 +1445,7 @@ If today is 16-12-2013 returns 21,22,23,24,25 trends.</p>
   <entry>
     <title type="html"><![CDATA[Blog + Octopress + GitHub]]></title>
     <link href="http://ptarcode.github.io/blog/2013/08/11/blog-plus-octopress-plus-github/"/>
-    <updated>2013-08-11T18:04:00+01:00</updated>
+    <updated>2013-08-11T18:04:00-03:00</updated>
     <id>http://ptarcode.github.io/blog/2013/08/11/blog-plus-octopress-plus-github</id>
     <content type="html"><![CDATA[<hr />
 
@@ -1464,7 +1666,7 @@ Push again to github</p>
   <entry>
     <title type="html"><![CDATA[Rails 3 generators in gem]]></title>
     <link href="http://ptarcode.github.io/blog/2013/08/11/rails-3-generators-in-gem/"/>
-    <updated>2013-08-11T18:02:00+01:00</updated>
+    <updated>2013-08-11T18:02:00-03:00</updated>
     <id>http://ptarcode.github.io/blog/2013/08/11/rails-3-generators-in-gem</id>
     <content type="html"><![CDATA[<hr />
 

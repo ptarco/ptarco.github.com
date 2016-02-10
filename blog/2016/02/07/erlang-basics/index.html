@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Gem previsao-clima-tempo - Paulo de Tarço</title>
+  <title>Erlang Basics - Paulo de Tarço</title>
   <meta name="author" content="Paulo de Tarço">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,28 +13,28 @@
   
     
   
-  <meta name="description" content=" Gem Communication with Clima Tempo accessing information about the weather of Brazil. ">
-  <meta name="keywords" content="clima tempo, clima-tempo, gem clima tempo, gem clima-tempo, previsao tempo, previsao-clima-tempo, gem"> 
+  <meta name="description" content=" ">
+  <meta name="keywords" content="Paulo de Tarço, Paulo de Tarco, <ptarco>, ptarco, <ptarcode>, ptarcode, tarço, tarso, ptarso, tarco, tarcode, ruby, ruby on rails, ruby rails, rails, ptarcode.github.io, ptarcode.github"> 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/">
+  <link rel="canonical" href="http://ptarcode.github.io/blog/2016/02/07/erlang-basics/">
   <link href="/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Paulo de Tarço" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Paulo de Tarço" />
-  <meta name="og:title" content="Gem previsao-clima-tempo" />
-  <meta name="og:description" content=" Gem Communication with Clima Tempo accessing information about the weather of Brazil. " />
-  <meta name="og:url" content="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/"/>
-  <meta name="url" content="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/">
+  <meta name="og:title" content="Erlang Basics" />
+  <meta name="og:description" content=" " />
+  <meta name="og:url" content="http://ptarcode.github.io/blog/2016/02/07/erlang-basics/"/>
+  <meta name="url" content="http://ptarcode.github.io/blog/2016/02/07/erlang-basics/">
   
-  <meta name="subject" content="GemsRails"/>
-  <meta name="category" content="GemsRails"/>
+  <meta name="subject" content=""/>
+  <meta name="category" content=""/>
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -82,7 +82,7 @@ function googleTranslateElementInit() {
 
   <header>
     
-      <h1 class="entry-title">Gem Previsao-clima-tempo</h1>
+      <h1 class="entry-title">Erlang Basics</h1>
     
     
       <p class="meta">
@@ -107,15 +107,8 @@ function googleTranslateElementInit() {
   
 
 
-<time datetime="2013-08-17T00:00:00-03:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time> - 
+<time datetime="2016-02-07T20:07:00-02:00" pubdate data-updated="true">Feb 7<span>th</span>, 2016</time> - 
         
-
-posted in
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/gems/'>Gems</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>
-  
-</span>
 
 
         
@@ -126,92 +119,86 @@ posted in
   </header>
 
 
-  <div class="entry-content"><hr />
-
-<!--more-->
+  <div class="entry-content"><!--more-->
 
 
-<p><a href="http://badge.fury.io/rb/previsao-clima-tempo"><img src="https://badge.fury.io/rb/previsao-clima-tempo.png" alt="Gem Version" /></a></p>
+<p>Erlang is a programming language used to build massively scalable soft real-time systems with requirements on high availability. Some of its uses are in telecoms, banking, e-commerce, computer telephony and instant messaging. Erlang&rsquo;s runtime system has built-in support for concurrency, distribution and fault tolerance.</p>
 
-<p>Communication with Clima Tempo accessing information about the weather of Brazil.</p>
+<h3>History</h3>
 
-<h2>Installation</h2>
+<p>The name &ldquo;Erlang&rdquo;, attributed to Bjarne Däcker, has been presumed by those working on the telephony switches (for whom the language was designed) to be a reference to Danish mathematician and engineer Agner Krarup Erlang or the ubiquitous use of the unit named for him, and (initially at least) simultaneously as a syllabic abbreviation of &ldquo;Ericsson Language&rdquo;.</p>
 
-<p>Add this line to your application&rsquo;s Gemfile:</p>
+<h5>1982 &ndash; 1985</h5>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'previsao-clima-tempo'</span></code></pre></td></tr></table></div></figure>
+<p>Experiments with programming of telecom using > 20 different languages. Conclusion: The language must be a very high level symbolic language in order to achive productivity gains ! (Leaves us with: Lisp , Prolog , Parlog &hellip;)</p>
 
+<h5>1985 &ndash; 1986</h5>
 
-<p>And then execute:</p>
+<p>Experiments with Lisp,Prolog, Parlog etc. Conclusion: The language must contain primitives for concurrency and error recovery, and the execution model must not have back-tracking. (Rules out Lisp and Prolog.) It must also have a granularity of concurrency such that one asyncronous telephony process is represented by one process in the language. Rules out Parlog. We must therefore develop our own language with the desirable features of Lisp, Prolog and Parlog, but with concurrency and error recovery built into the language.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle</span></code></pre></td></tr></table></div></figure>
+<h5>1987</h5>
 
+<p>The first experiments with Erlang.</p>
 
-<p>Or install it yourself as:</p>
+<h5>1988</h5>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem install previsao-clima-tempo</span></code></pre></td></tr></table></div></figure>
+<p>ACS/Dunder Phase 1. Prototype construction of PABX functionality by external users Erlang escapes from the lab!</p>
 
+<h5>1989</h5>
 
-<h2>Usage</h2>
+<p>ACS/Dunder Phase 2. Reconstruction of 1/10 of the complete MD-110 system. Results: >> 10 times greater gains in efficency at construction compared with construction in PLEX!Further experiments with a fast implementation of Erlang.</p>
 
-<h3>From Webservice</h3>
+<h5>1990</h5>
 
-<h5>.new</h5>
+<p>Erlang is presented at ISS&#8217;90, which results in several new users, e.g Bellcore.</p>
 
-<p>Instantiating a object.The city code should be informed.</p>
+<h5>1991</h5>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156')</span></code></pre></td></tr></table></div></figure>
+<p>Fast implementation of Erlang is released to users. Erlang is represented at Telecom&#8217;91 . More functionality such as ASN1 &ndash; Compiler , graphical interface etc.</p>
 
+<h5>1992</h5>
 
-<h5>.now</h5>
+<p>A lot of new users, e.g several RACE projects. Erlang is ported to VxWorks, PC, Macintosh etc. Three applications using Erlang are presented at ISS&#8217;92. The two first product projects using Erlang are started.</p>
 
-<p>Returns an object PrevisaoDia with information from the current day.</p>
+<h5>1993</h5>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').now</span></code></pre></td></tr></table></div></figure>
+<p>Distribution is added to Erlang, which makes it possible to run a homgeneous Erlang system on a heterogeneous hardware. Decision to sell implementations Erlang externally. Separate organization in Ericsson started to maintain and support Erlang implementations and Erlang Tools.</p>
 
+<h3>Installation</h3>
 
-<h5>.tomorrow</h5>
+<p>Erlang Solutions offers a number of installs at <a href="http://www.erlang.org/downloads.">http://www.erlang.org/downloads.</a>
+Erlang/OTP Platform is a complex system composed of many smaller applications (modules). Installing the erlang package automatically installs the entire OTP suite. Since some of the more advanced users might want to download only a specific selection of modules, Erlang/OTP has been divided into smaller packages, all with the prefix &lsquo;erlang-&rsquo;, that can be installed without launching the erlang package.</p>
 
-<p>Returns an object PrevisaoDia with information the next day.</p>
+<p>Most OS package managers provide pre-built binary packages. You can also download the latest stable releases from Erlang Solutions or try install with package managers.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').tomorrow</span></code></pre></td></tr></table></div></figure>
+<pre><code>For Homebrew on OS X: brew install erlang
+For MacPorts on OS X: port install erlang
+For Ubuntu and Debian: apt-get install erlang
+For Fedora: yum install erlang
+For FreeBSD: pkg install erlang
+</code></pre>
 
+<h3>Shell</h3>
 
-<h5>.days</h5>
+<p>On Windows command line type <strong>werl</strong> on Linux or Mac OS X type <strong>erl</strong>.</p>
 
-<p>Returns a collection of objects PrevisaoDia with information of days referenced.</p>
+<pre><code>Erlang/OTP 18 [erts-7.2] [source-e6dd627] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').days(13) maximum of 13 days from the current day</span></code></pre></td></tr></table></div></figure>
+Eshell V7.2  (abort with ^G)
+1&gt;
+</code></pre>
 
-
-<h5>.day</h5>
-
-<p>Returns an object PrevisaoDia with information the day referenced.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '3156').day(date)</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>From Page</h3>
-
-<h4>(contains more information than is extracted from the webservice)</h4>
-
-<h5>.nowFromPage</h5>
-
-<p>Returns a hash of condtions of weather from page</p>
+<h4>Browsing the archives</h4>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').nowFromPage</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pwd(). 
+</span><span class='line'>/Users/ptarcode 
+</span><span class='line'>ok</span></code></pre></td></tr></table></div></figure>
 
 
-<p>return:</p>
+<p>Argument in parentheses but in quotes, preferably double quotes.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -219,31 +206,15 @@ posted in
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{
-</span><span class='line'>      :last_update: 18:00
-</span><span class='line'>      :wind:
-</span><span class='line'>        :velocity: 3 Km/h
-</span><span class='line'>        :direction: Su-sudeste
-</span><span class='line'>      :moisture: 91%
-</span><span class='line'>      :condition: Poucas nuvens
-</span><span class='line'>      :pression: 1022 hPa
-</span><span class='line'>      :temperature: 13ºC  
-</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>5> cd("..").
+</span><span class='line'>/Users
+</span><span class='line'>ok
+</span><span class='line'>6> cd("ptarcode"). /Users/ptarcode
+</span><span class='line'>ok
+</span><span class='line'>7></span></code></pre></td></tr></table></div></figure>
 
 
-<h5>.fullFromPage</h5>
-
-<p>Returns a hash of condtions of weather whith 5 days from page.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').fullFromPage</span></code></pre></td></tr></table></div></figure>
-
-
-<p>return:</p>
+<h4>Doing &hellip;</h4>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -257,80 +228,91 @@ posted in
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{
-</span><span class='line'>      1:
-</span><span class='line'>        :last_update: 19:00
-</span><span class='line'>        :date: Sábado, 17/08/2013
-</span><span class='line'>        :condition: Sol com muitas nuvens durante o dia e períodos de céu nublado. Noite
-</span><span class='line'>          com muitas nuvens.
-</span><span class='line'>        :wind:
-</span><span class='line'>          :velocity: 6km/h
-</span><span class='line'>          :direction: Su-sudeste
-</span><span class='line'>        :probability_of_precipitation:
-</span><span class='line'>          :volume: 0mm
-</span><span class='line'>          :percentage: 0%
-</span><span class='line'>        :moisture_relative_complete:
-</span><span class='line'>          :max: 100%
-</span><span class='line'>          :min: 49%
-</span><span class='line'>        :temperature:
-</span><span class='line'>          :max: 16º
-</span><span class='line'>          :min: 7º
-</span><span class='line'>        :uv: Alto
-</span><span class='line'>        :sunrise: 06h13
-</span><span class='line'>        :sunset: 17h36
-</span><span class='line'>      2: ...
-</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Eshell V5.9 (abort with ^G) 1> 2+2.
+</span><span class='line'>4
+</span><span class='line'>2> 39-9.
+</span><span class='line'>30
+</span><span class='line'>3> 10*43.
+</span><span class='line'>430
+</span><span class='line'>4> 100 div 15.
+</span><span class='line'>6
+</span><span class='line'>6> 100 rem 15.
+</span><span class='line'>10
+</span><span class='line'>7> 3*(5+3).
+</span><span class='line'>24</span></code></pre></td></tr></table></div></figure>
 
 
-<h5>.trendsFromPage</h5>
+<h4>Functions &hellip;</h4>
 
-<p>Returns a hash of condtions of weather whith 5 days from page.
-If today is 16-12-2013 returns 21,22,23,24,25 trends.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>PrevisaoClimaTempo.new(:codCity => '314').trendsFromPage</span></code></pre></td></tr></table></div></figure>
-
-
-<p>return:</p>
+<p>Mathematical functions supported by Erlang’s math module simple examples.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{
-</span><span class='line'>      1:
-</span><span class='line'>        :date: Quinta-Feira, 22/08/2013
-</span><span class='line'>        :condition: Sol com algumas nuvens. Não chove.
-</span><span class='line'>        :probability_of_precipitation:
-</span><span class='line'>          :volume: 0mm
-</span><span class='line'>          :percentage: 0%
-</span><span class='line'>        :temperature:
-</span><span class='line'>          :max: 23º
-</span><span class='line'>          :min: 7º
-</span><span class='line'>      2: 
-</span><span class='line'>   }</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>4> math:pi(). 
+</span><span class='line'>3.141592653589793
+</span><span class='line'>
+</span><span class='line'>5> math:cos(math:pi()).
+</span><span class='line'>-1.0</span></code></pre></td></tr></table></div></figure>
 
 
-<hr />
+<h4>Numbers</h4>
+
+<p>Erlang recognizes integers and floating-point numbers. Uses the 64-bit IEEE 754-1985 “double precision” representation. This means that it keeps track of about 15 decimal digits plus an exponent.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>7> 8888888888888888888888888888888888888888888.0. 
+</span><span class='line'>8.888888888888889e42
+</span><span class='line'>
+</span><span class='line'>9> 88888888888.88888888888888 .
+</span><span class='line'>88888888888.88889</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Digits+Exponent notation</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>7> 2.923e127. 2.923e127
+</span><span class='line'>8> 7.6345435e-231. 7.6345435e-231</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Base2+Value notation</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>11> 2#10101. 
+</span><span class='line'>21
+</span><span class='line'>12> -2#10101. 
+</span><span class='line'>-21</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Base16+Value notation</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>16> 16#fa81.
+</span><span class='line'>64129
+</span><span class='line'>17> -16#fa81.
+</span><span class='line'>-64129</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Examples:</p>
+
+<h5>pstricks    <a href="http://latex2html5.com/examples/pstricks.html">http://latex2html5.com/examples/pstricks.html</a></h5>
+
+<h5>interactive <a href="http://latex2html5.com/examples/interactive.html">http://latex2html5.com/examples/interactive.html</a></h5>
+
+<h5>graphs      <a href="http://latex2html5.com/examples/graphs.html">http://latex2html5.com/examples/graphs.html</a></h5>
 </div>
 
 
@@ -357,22 +339,15 @@ If today is 16-12-2013 returns 21,22,23,24,25 trends.</p>
   
 
 
-<time datetime="2013-08-17T00:00:00-03:00" pubdate data-updated="true">Aug 17<span>th</span>, 2013</time> - 
+<time datetime="2016-02-07T20:07:00-02:00" pubdate data-updated="true">Feb 7<span>th</span>, 2016</time> - 
       
-
-posted in
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/gems/'>Gems</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/" data-via="ptarcode" data-counturl="http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarcode.github.io/blog/2016/02/07/erlang-basics/" data-via="ptarcode" data-counturl="http://ptarcode.github.io/blog/2016/02/07/erlang-basics/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -384,10 +359,8 @@ posted in
 
     
     
-      <a class="pull-left" href="/blog/2013/08/11/blog-plus-octopress-plus-github/" title="Previous Post: Blog + Octopress + GitHub">&laquo; Blog + Octopress + GitHub</a>
+      <a class="pull-left" href="/blog/2015/04/26/latex-to-html/" title="Previous Post: Latex to Html">&laquo; Latex to Html</a>
     
-    
-      <a class="pull-right" href="/blog/2013/08/17/gem-agendare-schedule/" title="Next Post: Gem agendare-schedule">Gem agendare-schedule &raquo;</a>
     
   </footer>
 
@@ -520,8 +493,8 @@ posted in
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/';
-        var disqus_url = 'http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/';
+        var disqus_identifier = 'http://ptarcode.github.io/blog/2016/02/07/erlang-basics/';
+        var disqus_url = 'http://ptarcode.github.io/blog/2016/02/07/erlang-basics/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -2,54 +2,58 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://ptarcode.github.io/blog/2013/08/11/rails-3-generators-in-gem/</loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2015-12-07T00:07:42-02:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/blog/2013/08/11/blog-plus-octopress-plus-github/</loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2015-12-07T00:07:42-02:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/blog/2013/08/17/gem-previsao-clima-tempo/</loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2015-12-07T00:07:42-02:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/blog/2013/08/17/gem-agendare-schedule/</loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2015-12-07T00:07:42-02:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/blog/2013/08/21/blocks-procs-e-lambdas/</loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2015-12-07T00:07:42-02:00</lastmod>
     </url>
     <url>
         <loc>
             http://ptarcode.github.io/blog/2013/09/03/writing-and-publishing-node-dot-js-modules/
         </loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2015-12-07T00:07:42-02:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/blog/2013/09/09/clima-tempo-module-for-node-dot-js/</loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2015-12-07T00:07:42-02:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/blog/2013/11/26/rails-4-turbolinks/</loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2015-12-07T00:07:42-02:00</lastmod>
     </url>
     <url>
         <loc>
             http://ptarcode.github.io/blog/2015/04/26/first-peripheral-only-with-radio-static/
         </loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2015-12-07T00:07:42-02:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/blog/2015/04/26/latex-to-html/</loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2016-02-07T22:25:21-02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://ptarcode.github.io/blog/2016/02/07/erlang-basics/</loc>
+        <lastmod>2016-02-10T14:12:01-02:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/blog/archives/</loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2016-02-10T14:12:01-02:00</lastmod>
     </url>
     <url>
         <loc>http://ptarcode.github.io/</loc>
-        <lastmod>2015-12-07T00:07:42+00:00</lastmod>
+        <lastmod>2016-02-10T14:12:01-02:00</lastmod>
     </url>
 </urlset>
