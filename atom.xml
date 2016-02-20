@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo de Tarço]]></title>
   <link href="http://ptarcode.github.io/atom.xml" rel="self"/>
   <link href="http://ptarcode.github.io/"/>
-  <updated>2016-02-19T23:14:44-02:00</updated>
+  <updated>2016-02-19T23:26:34-02:00</updated>
   <id>http://ptarcode.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -26,6 +26,8 @@
 <p>Weizenbaum got the first indication of this phenomenon when he invited his secretary to try the system. After a couple of minutes typing with Eliza, the secretary (who had watched Weizenbaum work on the software for many previous months, and could be expected to understand better than most that it was just a computer program) asked Weizenbaum to leave the room so that she could continue her dialogue in private!</p>
 
 <p>The Turing test failed on its first outing, as the secretary plainly regarded this elementary software (with no pretensions to artificial intelligence) as human. Rather than the software showing intelligence, the humans showed gullibility. Eliza proved to be a popular program, and was adapted by Bolt Berenek and Newman, a Boston computer consul-tancy. This led to a more severe test when a BBN vice president found himself connected to Eliza instead of the programmer he was expecting.</p>
+
+<p><img class="right" src="http://ptarcode.github.io/images/post/siri_eliza_chat.png" width="150" height="250" title="Elisa" ></p>
 
 <h5>Eliza Chat bot &ndash; NLP Addiction  <a href="http://nlp-addiction.com/eliza/" target="_blank">Try online</a></h5>
 ]]></content>
