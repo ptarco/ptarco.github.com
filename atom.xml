@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo de Tarço]]></title>
   <link href="http://ptarcode.github.io/atom.xml" rel="self"/>
   <link href="http://ptarcode.github.io/"/>
-  <updated>2016-02-10T19:20:45-02:00</updated>
+  <updated>2016-02-19T23:14:44-02:00</updated>
   <id>http://ptarcode.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Eliza - First computer programs to process natural language.]]></title>
+    <link href="http://ptarcode.github.io/blog/2016/02/19/eliza-first-computer-programs-to-process-natural-language/"/>
+    <updated>2016-02-19T23:01:00-02:00</updated>
+    <id>http://ptarcode.github.io/blog/2016/02/19/eliza-first-computer-programs-to-process-natural-language</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>One of the first computer programs to process natural language was &ldquo;Eliza,&rdquo; named after the gabby heroine in Shaw&rsquo;s play Pygmalion. The Eliza software was written in 1965 by Joseph Weizenbaum, a professor at MIT, and it simulated the responses of a Rogerian psychiatrist talking to a patient. The program made a superficial analysis of the text typed to it, and spat back one of a large number of canned responses built into it. The illusion that the computer understood any of the conversation fooled quite a number of com-puter-naive people.</p>
+
+<p>Weizenbaum got the first indication of this phenomenon when he invited his secretary to try the system. After a couple of minutes typing with Eliza, the secretary (who had watched Weizenbaum work on the software for many previous months, and could be expected to understand better than most that it was just a computer program) asked Weizenbaum to leave the room so that she could continue her dialogue in private!</p>
+
+<p>The Turing test failed on its first outing, as the secretary plainly regarded this elementary software (with no pretensions to artificial intelligence) as human. Rather than the software showing intelligence, the humans showed gullibility. Eliza proved to be a popular program, and was adapted by Bolt Berenek and Newman, a Boston computer consul-tancy. This led to a more severe test when a BBN vice president found himself connected to Eliza instead of the programmer he was expecting.</p>
+
+<h5>Eliza Chat bot &ndash; NLP Addiction  <a href="http://nlp-addiction.com/eliza/" target="_blank">Try online</a></h5>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Erlang Basics]]></title>
