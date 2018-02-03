@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo de Tarço]]></title>
   <link href="http://ptarcode.github.io/atom.xml" rel="self"/>
   <link href="http://ptarcode.github.io/"/>
-  <updated>2016-02-21T09:15:46-03:00</updated>
+  <updated>2018-02-03T21:03:08-02:00</updated>
   <id>http://ptarcode.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -12,51 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[DIY drone canopy from scrap pan of easter egg.]]></title>
-    <link href="http://ptarcode.github.io/blog/2016/02/20/diy-drone-canopy-from-scrap-pan-of-easter-egg/"/>
-    <updated>2016-02-20T21:35:00-02:00</updated>
-    <id>http://ptarcode.github.io/blog/2016/02/20/diy-drone-canopy-from-scrap-pan-of-easter-egg</id>
-    <content type="html"><![CDATA[<!--more-->
-
-
-<p>Build your own DIY drone canopy from scrap.</p>
-
-<p>Materials:</p>
-
-<ol>
-<li>Spray paint black</li>
-<li>Spray paint green</li>
-<li>Adhesive tape</li>
-<li>Pan of easter egg</li>
-<li>Scissors or utility knife to remove the barbs.</li>
-<li>Sandpaper</li>
-</ol>
-
-
-<p><img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-1.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-2.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-3.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-4.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-5.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-6.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-7.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-8.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-9.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-10.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-11.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-12.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-13.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-14.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-15.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-16.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-17.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-18.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-19.png" width="400" title="DIY_drone" >
-<img class="right" src="../../../../../images/post/DIY_drone/DIY_drone-20.png" width="400" title="DIY_drone" ></p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[Eliza - First computer programs to process natural language.]]></title>
