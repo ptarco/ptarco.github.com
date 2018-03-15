@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>3 Profilers Tools - Paulo de Tarço</title>
+  <meta name="author" content="Paulo de Tarço">
+  <link rel="author" href="humans.txt">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+    
+  
+  <meta name="description" content=" ">
+  <meta name="keywords" content="Paulo de Tarço, Paulo de Tarco, <ptarco>, ptarco, <ptarcode>, ptarcode, tarço, tarso, ptarso, tarco, tarcode, ruby, ruby on rails, ruby rails, rails, ptarcode.github.io, ptarcode.github"> 
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://ptarcode.github.io/blog/2018/03/14/3-profilers-tools/">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Paulo de Tarço" type="application/atom+xml">
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="Paulo de Tarço" />
+  <meta name="og:title" content="3 Profilers Tools" />
+  <meta name="og:description" content=" " />
+  <meta name="og:url" content="http://ptarcode.github.io/blog/2018/03/14/3-profilers-tools/"/>
+  <meta name="url" content="http://ptarcode.github.io/blog/2018/03/14/3-profilers-tools/">
+  
+  <meta name="subject" content=""/>
+  <meta name="category" content=""/>
+  
+  <meta name="distribution" content="global">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> 
+<meta name="og:image" content="http://en.gravatar.com/userimage/53584595/939e1ad52f2153bfa5208ff9f2014ff4.jpg?size=200" /> 
+  
+
+  <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,es,fr,pt'}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/">Paulo de Tarço</a>
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog/archives">Archives</a></li>
+    </ul>
+    <ul class="nav" data-subscription="rss">
+      <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      
+    </ul>
+      
+    <form class="navbar-form" action="http://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:ptarcode.github.io" />
+        <input class="span2" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+      
+    
+  </div>
+</div>
+</nav>
+  <div class="wrapper_single">
+    <div class="container">
+      <article class="span8 offset2" role="article">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title">3 Profilers Tools</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/106034953103370639100?rel=author"><span class="fn">Paulo de Tarço</span></a></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2018-03-14T21:12:00-03:00" pubdate data-updated="true">Mar 14<span>th</span>, 2018</time> - 
+        
+
+
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><!--more-->
+
+
+<h3>What is it?</h3>
+
+<p>In software engineering, profiling (&ldquo;program profiling&rdquo;, &ldquo;software profiling&rdquo;) is a form of dynamic program analysis that measures, for example, the space (memory) or time complexity of a program, the usage of particular instructions, or the frequency and duration of function calls. Most commonly, profiling information serves to aid program optimization.</p>
+
+<p>Profiling is achieved by instrumenting either the program source code or its binary executable form using a tool called a profiler (or code profiler). Profilers may use a number of different techniques, such as event-based, statistical, instrumented, and simulation methods.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Profiling" title="Title">Font: https://en.wikipedia.org</a></p>
+
+<h3>Gprof</h3>
+
+<p>Gprof produces an execution profile of C, Pascal, or Fortran77 programs. The effect of called routines is incorporated in the profile of each caller. The profile data is taken from the call graph profile file (gmon.out default) which is created by programs that are compiled with the -pg option of cc, pc, and f77. The -pg option also links in versions of the library routines that are compiled for profiling. Gprof reads the given object file (the default is a.out) and establishes the relation between its symbol table and the call graph profile from gmon.out. If more than one profile file is specified, the gprof output shows the sum of the profile information in the given profile files.
+Gprof calculates the amount of time spent in each routine. Next, these times are propagated along the edges of the call graph. Cycles are discovered, and calls into a cycle are made to share the time of the cycle.
+Several forms of output are available from the analysis.
+The flat profile shows how much time your program spent in each function, and how many times that function was called. If you simply want to know which functions burn most of the cycles, it is stated concisely here.
+The call graph shows, for each function, which functions called it, which other functions it called, and how many times. There is also an estimate of how much time was spent in the subroutines of each function. This can suggest places where you might try to eliminate function calls that use a lot of time.
+The annotated source listing is a copy of the program’s source code, labeled with the number of times each line of the program was executed.</p>
+
+<p>Step 1. Enable profiling during compilation (use -pg option)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gcc -pg -o TestGprof TestGprof.c</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Step 2. Execute the binary so that profiling data is generated</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ./TestGprof</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the profiling is enabled then on executing the program, file gmon.out will be generated.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ls gmon.out  TestGprof  TestGprof.c</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Step 3. Run gprof on profiling data</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gprof -b TestGprof gmon.out > analysis.out</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Below are the contents of analysis.out</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Flat profile:
+</span><span class='line'>
+</span><span class='line'>Each sample counts as 0.01 seconds.
+</span><span class='line'>  %   cumulative   self              self     total
+</span><span class='line'> time   seconds   seconds    calls   s/call   s/call  name
+</span><span class='line'>100.55     20.38    20.38      100     0.20     0.20  StaticFunc
+</span><span class='line'>  0.00     20.38     0.00        1     0.00    20.38  TestFunc
+</span><span class='line'>
+</span><span class='line'>                        Call graph
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>granularity: each sample hit covers 2 byte(s) for 0.05% of 20.38 seconds
+</span><span class='line'>
+</span><span class='line'>index % time    self  children    called     name
+</span><span class='line'>               20.38    0.00     100/100         TestFunc [2]
+</span><span class='line'>[1]    100.0   20.38    0.00     100         StaticFunc [1]
+</span><span class='line'>-----------------------------------------------
+</span><span class='line'>                0.00   20.38       1/1           main [3]
+</span><span class='line'>[2]    100.0    0.00   20.38       1         TestFunc [2]
+</span><span class='line'>               20.38    0.00     100/100         StaticFunc [1]
+</span><span class='line'>-----------------------------------------------
+</span><span class='line'>                                                 
+</span><span class='line'>[3]    100.0    0.00   20.38                 main [3]
+</span><span class='line'>                0.00   20.38       1/1           TestFunc [2]
+</span><span class='line'>-----------------------------------------------
+</span><span class='line'>
+</span><span class='line'>Index by function name
+</span><span class='line'>
+</span><span class='line'>   [1] StaticFunc              [2] TestFunc</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://www.tutorialspoint.com/unix_commands/gprof.htm" title="Title">Font: https://www.tutorialspoint.com</a></p>
+
+<h3>Valgrind</h3>
+
+<p>Valgrind is a GPL&rsquo;d system for debugging and profiling Linux programs. With Valgrind&rsquo;s tool suite you can automatically detect many memory management and threading bugs, avoiding hours of frustrating bug-hunting, making your programs more stable. You can also perform detailed profiling to help speed up your programs.</p>
+
+<h4>Memcheck</h4>
+
+<p>Memcheck detects memory-management problems, and is aimed primarily at C and C++ programs. When a program is run under Memcheck&rsquo;s supervision, all reads and writes of memory are checked, and calls to malloc/new/free/delete are intercepted. As a result, Memcheck can detect if your program:
+• Accesses memory it shouldn&rsquo;t (areas not yet allocated, areas that have been freed, areas past the end of heap blocks, inaccessible areas of the stack).
+• Uses uninitialised values in dangerous ways.
+• Leaks memory.
+• Does bad frees of heap blocks (double frees, mismatched frees).
+• Passes overlapping source and destination memory blocks to memcpy() and related functions.
+Memcheck reports these errors as soon as they occur, giving the source line number at which it occurred, and also a stack trace of the functions called to reach that line. Memcheck tracks addressability at the byte-level, and initialisation of values at the bit-level. As a result, it can detect the use of single uninitialised bits, and does not report spurious errors on bitfield operations. Memcheck runs programs about 10&mdash;30x slower than normal.</p>
+
+<h4>Cachegrind</h4>
+
+<p>Cachegrind is a cache profiler. It performs detailed simulation of the I1, D1 and L2 caches in your CPU and so can accurately pinpoint the sources of cache misses in your code. It identifies the number of cache misses, memory references and instructions executed for each line of source code, with per-function, per-module and whole-program summaries. It is useful with programs written in any language. Cachegrind runs programs about 20&mdash;100x slower than normal.</p>
+
+<h4>Callgrind</h4>
+
+<p>Callgrind, by Josef Weidendorfer, is an extension to Cachegrind. It provides all the information that Cachegrind does, plus extra information about callgraphs. It was folded into the main Valgrind distribution in version 3.2.0. Available separately is an amazing visualisation tool, KCachegrind, which gives a much better overview of the data that Callgrind collects; it can also be used to visualise Cachegrind&rsquo;s output.</p>
+
+<h4>Massif</h4>
+
+<p>Massif is a heap profiler. It performs detailed heap profiling by taking regular snapshots of a program&rsquo;s heap. It produces a graph showing heap usage over time, including information about which parts of the program are responsible for the most memory allocations. The graph is supplemented by a text or HTML file that includes more information for determining where the most memory is being allocated. Massif runs programs about 20x slower than normal.</p>
+
+<h4>Helgrind</h4>
+
+<p>Helgrind is a thread debugger which finds data races in multithreaded programs. It looks for memory locations which are accessed by more than one (POSIX p-)thread, but for which no consistently used (pthread_mutex_) lock can be found. Such locations are indicative of missing synchronisation between threads, and could cause hard-to-find timing-dependent problems. It is useful for any program that uses pthreads. It is a somewhat experimental tool, so your feedback is especially welcome here.</p>
+
+<p>You invoke Valgrind like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>valgrind [valgrind-options] your-prog [your-prog-options]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The most important option is &mdash;tool which dictates which Valgrind tool to run. For example, if want to run the command ls -l using the memory-checking tool Memcheck, issue this command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>valgrind --tool=memcheck ls -l</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://valgrind.org/" title="Title">Font: http://valgrind.org/</a></p>
+
+<h3>Gperftools</h3>
+
+<p>Gperftools is a collection of a high-performance multi-threaded malloc() implementation, plus some pretty nifty performance analysis tools.</p>
+
+<p>Gperftools is distributed under the terms of the BSD License. Join our mailing list at <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#x67;&#x70;&#101;&#x72;&#x66;&#x74;&#111;&#x6f;&#x6c;&#115;&#64;&#103;&#111;&#111;&#x67;&#x6c;&#101;&#103;&#x72;&#111;&#117;&#x70;&#115;&#46;&#99;&#x6f;&#109;">&#x67;&#x70;&#x65;&#114;&#102;&#116;&#x6f;&#x6f;&#x6c;&#115;&#x40;&#x67;&#x6f;&#x6f;&#x67;&#108;&#x65;&#x67;&#x72;&#x6f;&#x75;&#112;&#115;&#x2e;&#99;&#x6f;&#x6d;</a> for updates:
+<a href="https://groups.google.com/forum/#!forum/gperftools">https://groups.google.com/forum/#!forum/gperftools</a></p>
+
+<p>Gperftools was original home for pprof program. But do note that original pprof (which is still included with gperftools) is now deprecated in favor of golang version at <a href="https://github.com/google/pprof">https://github.com/google/pprof</a></p>
+
+<h4>TCMALLOC</h4>
+
+<p>Just link in -ltcmalloc or -ltcmalloc_minimal to get the advantages of tcmalloc &mdash; a replacement for malloc and new.  See below for some environment variables you can use with tcmalloc, as well.</p>
+
+<p>Tcmalloc functionality is available on all systems we&rsquo;ve tested; see INSTALL for more details.  See README_windows.txt for instructions on using tcmalloc on Windows.</p>
+
+<p>NOTE: When compiling with programs with gcc, that you plan to link with libtcmalloc, it&rsquo;s safest to pass in the flags when compiling.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Gcc makes some optimizations assuming it is using its own, built-in malloc; that assumption obviously isn&rsquo;t true with tcmalloc.  In practice, we haven&rsquo;t seen any problems with this, but the expected risk is highest for users who register their own malloc hooks with tcmalloc (using gperftools/malloc_hook.h).  The risk is
+lowest for folks who use tcmalloc_minimal.</p>
+
+<h4>HEAP PROFILER</h4>
+
+<p>As a quick-start, do the following after installing this package:</p>
+
+<p>1) Link your executable:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-ltcmalloc</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2) Run your executable with the HEAPPROFILE environment var set:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ HEAPPROFILE=/tmp/heapprof &lt;path/to/binary> [binary args]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>3) Run pprof to analyze the heap usage</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ pprof &lt;path/to/binary> /tmp/heapprof.0045.heap  # run 'ls' to see options
+</span><span class='line'>     $ pprof --gv &lt;path/to/binary> /tmp/heapprof.0045.heap</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can also use LD_PRELOAD to heap-profile an executable that you didn&rsquo;t compile.</p>
+
+<p>There are other environment variables, besides HEAPPROFILE, you can set to adjust the heap-profiler behavior; c.f. &ldquo;ENVIRONMENT VARIABLES&rdquo; below.</p>
+
+<p>The heap profiler is available on all unix-based systems we&rsquo;ve tested; see INSTALL for more details.  It is not currently available on Windows.</p>
+
+<h4>HEAP CHECKER</h4>
+
+<p>In order to catch all heap leaks, tcmalloc must be linked <em>last</em> into your executable.  The heap checker may mischaracterize some memory accesses in libraries listed after it on the link line.  For instance, it may report these libraries as leaking memory when they&rsquo;re not.</p>
+
+<p>Here&rsquo;s a quick-start for how to use:</p>
+
+<p>1) Link your executable:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-ltcmalloc</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2) Run your executable with the HEAPCHECK environment var set:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ HEAPCHECK=1 &lt;path/to/binary> [binary args]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Other values for HEAPCHECK: normal (equivalent to &ldquo;1&rdquo;), strict, draconian</p>
+
+<p>You can also use LD_PRELOAD to heap-check an executable that you didn&rsquo;t compile.</p>
+
+<p>The heap checker is only available on Linux at this time.</p>
+
+<h4>CPU PROFILER</h4>
+
+<p>As a quick-start, do the following after installing this package:</p>
+
+<p>1) Link your executable:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-ltcmalloc</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2) Run your executable with the CPUPROFILE environment var set:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ CPUPROFILE=/tmp/prof.out &lt;path/to/binary> [binary args]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>3) Run pprof to analyze the CPU usage</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ pprof &lt;path/to/binary> /tmp/prof.out      # -pg-like text output
+</span><span class='line'>     $ pprof --gv &lt;path/to/binary> /tmp/prof.out # really cool graphical output</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There are other environment variables, besides CPUPROFILE, you can set to adjust the cpu-profiler behavior; cf &ldquo;ENVIRONMENT VARIABLES&rdquo; below.</p>
+
+<p>The CPU profiler is available on all unix-based systems we&rsquo;ve tested; see INSTALL for more details.  It is not currently available on Windows.</p>
+
+<p>NOTE: CPU profiling doesn&rsquo;t work after fork (unless you immediately do an exec()-like call afterwards).  Furthermore, if you do fork, and the child calls exit(), it may corrupt the profile data.  You can use _exit() to work around this.  We hope to have a fix for both problems in the next release of perftools (hopefully perftools 1.2).</p>
+
+<p><a href="https://github.com/gperftools/gperftools" title="Title">Font: https://github.com/gperftools/gperftools</a></p>
+
+<hr />
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+  
+    <span class="byline author vcard">by <a href="https://plus.google.com/106034953103370639100?rel=author"><span class="fn">Paulo de Tarço</span></a></span>
+  
+
+ - 
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2018-03-14T21:12:00-03:00" pubdate data-updated="true">Mar 14<span>th</span>, 2018</time> - 
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://ptarcode.github.io/blog/2018/03/14/3-profilers-tools/" data-via="ptarcode" data-counturl="http://ptarcode.github.io/blog/2018/03/14/3-profilers-tools/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    
+      <a class="pull-left" href="/blog/2016/02/19/eliza-first-computer-programs-to-process-natural-language/" title="Previous Post: Eliza - First computer programs to process natural language.">&laquo; Eliza - First computer programs to process natural language.</a>
+    
+    
+  </footer>
+
+</div>
+
+        
+          <div class="article-format">
+            <h1>Comments</h1>
+            <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+          </div>
+        
+      </article>
+    </div>
+  </div>
+  <div id="footer-widgets">
+  <div class="container">
+    <div class="row">
+  <div class="span3">
+    <h2>recent posts</h2>
+    <ul class="recent_posts">
+      
+        <li>
+          <a href="/blog/2018/03/14/3-profilers-tools/">3 Profilers Tools</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2016/02/19/eliza-first-computer-programs-to-process-natural-language/">Eliza - First computer programs to process natural language.</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2016/02/07/erlang-basics/">Erlang Basics</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2015/04/26/latex-to-html/">Latex to Html</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2015/04/26/first-peripheral-only-with-radio-static/">First peripheral only with radio static.</a>
+        </li>
+      
+    </ul>
+    <h2><a href="/blog/archives">archives</a></h2>
+  </div>
+  <div class="span3">
+    
+
+  </div>
+  <div class="span4">
+    
+<h2>twitter</h2>
+<a href="https://twitter.com/ptarcode" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @ptarcode</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<div class="tweet" data-twitter-user="ptarcode">
+</div>
+
+
+  </div>
+  <div class="span2">
+    <div class="translater">  
+<div id="google_translate_element"></div>Google
+</div>
+<h2>found on</h2>
+
+<a href="https://github.com/ptarcode/" rel="tooltip" title="Github"><img class="social_icon" title="Github" alt="github icon" src="/images/glyphicons_381_github.png"></a>
+
+
+
+<a href="https://rubygems.org/profiles/ptarcode?rel=author" rel="tooltip" title="RubyGems.org"><img class="social_icon" title="RubyGems.org" alt="RubyGems.org icon" src="/images/glyphicons_401_rubygems.png"></a>
+
+
+
+<a href="https://npmjs.org/~ptarcode/" rel="tooltip" title="NPM RESGISTRY"><img class="social_icon" title="NPM RESGISTRY" alt="npm overflow icon" src="/images/glyphicons_401_npm.png"></a>
+
+
+
+
+
+<a href="http://twitter.com/ptarcode" rel="tooltip" title="Twitter"><img class="social_icon" title="Twitter" alt="Twitter icon" src="/images/glyphicons_391_twitter_t.png"></a>
+
+
+
+<a href="https://plus.google.com/106034953103370639100?rel=author" rel="tooltip" title="Google Plus"><img class="social_icon" title="Google Plus" alt="Google Plus icon" src="/images/glyphicons_386_google_plus.png"></a>
+
+
+
+
+
+<a href="http://www.linkedin.com/in/paulodetarco" rel="tooltip" title="Linkedin"><img class="social_icon" title="Linkedin" alt="Linkedin icon" src="/images/glyphicons_377_linked_in.png"></a>
+
+
+
+<h2>contact at</h2>
+<a href="mailto:ptarcode@gmail.com">ptarcode@gmail.com</a> 
+
+
+  </div>
+</div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">
+  <a href="/">Paulo de Tarço</a>
+  - Copyright &copy; 2018 - Paulo de Tarço
+</p>
+<p class="pull-right">
+  <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
+  
+<!--     <span>Designed by <a href="http://www.AdrianArtiles.com">Adrian Artiles</a>.</span> -->
+  
+</p>
+
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
+<script src="/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tweet.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.instagram.js" type="text/javascript"></script>
+<script src="/javascripts/libs/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/javascripts/custom.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'ptarcode';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ptarcode.github.io/blog/2018/03/14/3-profilers-tools/';
+        var disqus_url = 'http://ptarcode.github.io/blog/2018/03/14/3-profilers-tools/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+</body>
+</html>

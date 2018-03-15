@@ -4,7 +4,7 @@
   <title><![CDATA[Paulo de Tarço]]></title>
   <link href="http://ptarcode.github.io/atom.xml" rel="self"/>
   <link href="http://ptarcode.github.io/"/>
-  <updated>2018-02-03T21:03:08-02:00</updated>
+  <updated>2018-03-14T22:26:36-03:00</updated>
   <id>http://ptarcode.github.io/</id>
   <author>
     <name><![CDATA[Paulo de Tarço]]></name>
@@ -12,6 +12,277 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[3 Profilers Tools]]></title>
+    <link href="http://ptarcode.github.io/blog/2018/03/14/3-profilers-tools/"/>
+    <updated>2018-03-14T21:12:00-03:00</updated>
+    <id>http://ptarcode.github.io/blog/2018/03/14/3-profilers-tools</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<h3>What is it?</h3>
+
+<p>In software engineering, profiling (&ldquo;program profiling&rdquo;, &ldquo;software profiling&rdquo;) is a form of dynamic program analysis that measures, for example, the space (memory) or time complexity of a program, the usage of particular instructions, or the frequency and duration of function calls. Most commonly, profiling information serves to aid program optimization.</p>
+
+<p>Profiling is achieved by instrumenting either the program source code or its binary executable form using a tool called a profiler (or code profiler). Profilers may use a number of different techniques, such as event-based, statistical, instrumented, and simulation methods.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Profiling" title="Title">Font: https://en.wikipedia.org</a></p>
+
+<h3>Gprof</h3>
+
+<p>Gprof produces an execution profile of C, Pascal, or Fortran77 programs. The effect of called routines is incorporated in the profile of each caller. The profile data is taken from the call graph profile file (gmon.out default) which is created by programs that are compiled with the -pg option of cc, pc, and f77. The -pg option also links in versions of the library routines that are compiled for profiling. Gprof reads the given object file (the default is a.out) and establishes the relation between its symbol table and the call graph profile from gmon.out. If more than one profile file is specified, the gprof output shows the sum of the profile information in the given profile files.
+Gprof calculates the amount of time spent in each routine. Next, these times are propagated along the edges of the call graph. Cycles are discovered, and calls into a cycle are made to share the time of the cycle.
+Several forms of output are available from the analysis.
+The flat profile shows how much time your program spent in each function, and how many times that function was called. If you simply want to know which functions burn most of the cycles, it is stated concisely here.
+The call graph shows, for each function, which functions called it, which other functions it called, and how many times. There is also an estimate of how much time was spent in the subroutines of each function. This can suggest places where you might try to eliminate function calls that use a lot of time.
+The annotated source listing is a copy of the program’s source code, labeled with the number of times each line of the program was executed.</p>
+
+<p>Step 1. Enable profiling during compilation (use -pg option)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gcc -pg -o TestGprof TestGprof.c</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Step 2. Execute the binary so that profiling data is generated</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ./TestGprof</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the profiling is enabled then on executing the program, file gmon.out will be generated.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ls gmon.out  TestGprof  TestGprof.c</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Step 3. Run gprof on profiling data</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gprof -b TestGprof gmon.out > analysis.out</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Below are the contents of analysis.out</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Flat profile:
+</span><span class='line'>
+</span><span class='line'>Each sample counts as 0.01 seconds.
+</span><span class='line'>  %   cumulative   self              self     total
+</span><span class='line'> time   seconds   seconds    calls   s/call   s/call  name
+</span><span class='line'>100.55     20.38    20.38      100     0.20     0.20  StaticFunc
+</span><span class='line'>  0.00     20.38     0.00        1     0.00    20.38  TestFunc
+</span><span class='line'>
+</span><span class='line'>                        Call graph
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>granularity: each sample hit covers 2 byte(s) for 0.05% of 20.38 seconds
+</span><span class='line'>
+</span><span class='line'>index % time    self  children    called     name
+</span><span class='line'>               20.38    0.00     100/100         TestFunc [2]
+</span><span class='line'>[1]    100.0   20.38    0.00     100         StaticFunc [1]
+</span><span class='line'>-----------------------------------------------
+</span><span class='line'>                0.00   20.38       1/1           main [3]
+</span><span class='line'>[2]    100.0    0.00   20.38       1         TestFunc [2]
+</span><span class='line'>               20.38    0.00     100/100         StaticFunc [1]
+</span><span class='line'>-----------------------------------------------
+</span><span class='line'>                                                 
+</span><span class='line'>[3]    100.0    0.00   20.38                 main [3]
+</span><span class='line'>                0.00   20.38       1/1           TestFunc [2]
+</span><span class='line'>-----------------------------------------------
+</span><span class='line'>
+</span><span class='line'>Index by function name
+</span><span class='line'>
+</span><span class='line'>   [1] StaticFunc              [2] TestFunc</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://www.tutorialspoint.com/unix_commands/gprof.htm" title="Title">Font: https://www.tutorialspoint.com</a></p>
+
+<h3>Valgrind</h3>
+
+<p>Valgrind is a GPL&rsquo;d system for debugging and profiling Linux programs. With Valgrind&rsquo;s tool suite you can automatically detect many memory management and threading bugs, avoiding hours of frustrating bug-hunting, making your programs more stable. You can also perform detailed profiling to help speed up your programs.</p>
+
+<h4>Memcheck</h4>
+
+<p>Memcheck detects memory-management problems, and is aimed primarily at C and C++ programs. When a program is run under Memcheck&rsquo;s supervision, all reads and writes of memory are checked, and calls to malloc/new/free/delete are intercepted. As a result, Memcheck can detect if your program:
+• Accesses memory it shouldn&rsquo;t (areas not yet allocated, areas that have been freed, areas past the end of heap blocks, inaccessible areas of the stack).
+• Uses uninitialised values in dangerous ways.
+• Leaks memory.
+• Does bad frees of heap blocks (double frees, mismatched frees).
+• Passes overlapping source and destination memory blocks to memcpy() and related functions.
+Memcheck reports these errors as soon as they occur, giving the source line number at which it occurred, and also a stack trace of the functions called to reach that line. Memcheck tracks addressability at the byte-level, and initialisation of values at the bit-level. As a result, it can detect the use of single uninitialised bits, and does not report spurious errors on bitfield operations. Memcheck runs programs about 10&mdash;30x slower than normal.</p>
+
+<h4>Cachegrind</h4>
+
+<p>Cachegrind is a cache profiler. It performs detailed simulation of the I1, D1 and L2 caches in your CPU and so can accurately pinpoint the sources of cache misses in your code. It identifies the number of cache misses, memory references and instructions executed for each line of source code, with per-function, per-module and whole-program summaries. It is useful with programs written in any language. Cachegrind runs programs about 20&mdash;100x slower than normal.</p>
+
+<h4>Callgrind</h4>
+
+<p>Callgrind, by Josef Weidendorfer, is an extension to Cachegrind. It provides all the information that Cachegrind does, plus extra information about callgraphs. It was folded into the main Valgrind distribution in version 3.2.0. Available separately is an amazing visualisation tool, KCachegrind, which gives a much better overview of the data that Callgrind collects; it can also be used to visualise Cachegrind&rsquo;s output.</p>
+
+<h4>Massif</h4>
+
+<p>Massif is a heap profiler. It performs detailed heap profiling by taking regular snapshots of a program&rsquo;s heap. It produces a graph showing heap usage over time, including information about which parts of the program are responsible for the most memory allocations. The graph is supplemented by a text or HTML file that includes more information for determining where the most memory is being allocated. Massif runs programs about 20x slower than normal.</p>
+
+<h4>Helgrind</h4>
+
+<p>Helgrind is a thread debugger which finds data races in multithreaded programs. It looks for memory locations which are accessed by more than one (POSIX p-)thread, but for which no consistently used (pthread_mutex_) lock can be found. Such locations are indicative of missing synchronisation between threads, and could cause hard-to-find timing-dependent problems. It is useful for any program that uses pthreads. It is a somewhat experimental tool, so your feedback is especially welcome here.</p>
+
+<p>You invoke Valgrind like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>valgrind [valgrind-options] your-prog [your-prog-options]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The most important option is &mdash;tool which dictates which Valgrind tool to run. For example, if want to run the command ls -l using the memory-checking tool Memcheck, issue this command:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>valgrind --tool=memcheck ls -l</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://valgrind.org/" title="Title">Font: http://valgrind.org/</a></p>
+
+<h3>Gperftools</h3>
+
+<p>Gperftools is a collection of a high-performance multi-threaded malloc() implementation, plus some pretty nifty performance analysis tools.</p>
+
+<p>Gperftools is distributed under the terms of the BSD License. Join our mailing list at <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#111;&#x3a;&#x67;&#x70;&#101;&#x72;&#x66;&#x74;&#111;&#x6f;&#x6c;&#115;&#64;&#103;&#111;&#111;&#x67;&#x6c;&#101;&#103;&#x72;&#111;&#117;&#x70;&#115;&#46;&#99;&#x6f;&#109;">&#x67;&#x70;&#x65;&#114;&#102;&#116;&#x6f;&#x6f;&#x6c;&#115;&#x40;&#x67;&#x6f;&#x6f;&#x67;&#108;&#x65;&#x67;&#x72;&#x6f;&#x75;&#112;&#115;&#x2e;&#99;&#x6f;&#x6d;</a> for updates:
+<a href="https://groups.google.com/forum/#!forum/gperftools">https://groups.google.com/forum/#!forum/gperftools</a></p>
+
+<p>Gperftools was original home for pprof program. But do note that original pprof (which is still included with gperftools) is now deprecated in favor of golang version at <a href="https://github.com/google/pprof">https://github.com/google/pprof</a></p>
+
+<h4>TCMALLOC</h4>
+
+<p>Just link in -ltcmalloc or -ltcmalloc_minimal to get the advantages of tcmalloc &mdash; a replacement for malloc and new.  See below for some environment variables you can use with tcmalloc, as well.</p>
+
+<p>Tcmalloc functionality is available on all systems we&rsquo;ve tested; see INSTALL for more details.  See README_windows.txt for instructions on using tcmalloc on Windows.</p>
+
+<p>NOTE: When compiling with programs with gcc, that you plan to link with libtcmalloc, it&rsquo;s safest to pass in the flags when compiling.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-fno-builtin-malloc -fno-builtin-calloc -fno-builtin-realloc -fno-builtin-free</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Gcc makes some optimizations assuming it is using its own, built-in malloc; that assumption obviously isn&rsquo;t true with tcmalloc.  In practice, we haven&rsquo;t seen any problems with this, but the expected risk is highest for users who register their own malloc hooks with tcmalloc (using gperftools/malloc_hook.h).  The risk is
+lowest for folks who use tcmalloc_minimal.</p>
+
+<h4>HEAP PROFILER</h4>
+
+<p>As a quick-start, do the following after installing this package:</p>
+
+<p>1) Link your executable:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-ltcmalloc</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2) Run your executable with the HEAPPROFILE environment var set:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ HEAPPROFILE=/tmp/heapprof &lt;path/to/binary> [binary args]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>3) Run pprof to analyze the heap usage</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ pprof &lt;path/to/binary> /tmp/heapprof.0045.heap  # run 'ls' to see options
+</span><span class='line'>     $ pprof --gv &lt;path/to/binary> /tmp/heapprof.0045.heap</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can also use LD_PRELOAD to heap-profile an executable that you didn&rsquo;t compile.</p>
+
+<p>There are other environment variables, besides HEAPPROFILE, you can set to adjust the heap-profiler behavior; c.f. &ldquo;ENVIRONMENT VARIABLES&rdquo; below.</p>
+
+<p>The heap profiler is available on all unix-based systems we&rsquo;ve tested; see INSTALL for more details.  It is not currently available on Windows.</p>
+
+<h4>HEAP CHECKER</h4>
+
+<p>In order to catch all heap leaks, tcmalloc must be linked <em>last</em> into your executable.  The heap checker may mischaracterize some memory accesses in libraries listed after it on the link line.  For instance, it may report these libraries as leaking memory when they&rsquo;re not.</p>
+
+<p>Here&rsquo;s a quick-start for how to use:</p>
+
+<p>1) Link your executable:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-ltcmalloc</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2) Run your executable with the HEAPCHECK environment var set:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ HEAPCHECK=1 &lt;path/to/binary> [binary args]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Other values for HEAPCHECK: normal (equivalent to &ldquo;1&rdquo;), strict, draconian</p>
+
+<p>You can also use LD_PRELOAD to heap-check an executable that you didn&rsquo;t compile.</p>
+
+<p>The heap checker is only available on Linux at this time.</p>
+
+<h4>CPU PROFILER</h4>
+
+<p>As a quick-start, do the following after installing this package:</p>
+
+<p>1) Link your executable:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-ltcmalloc</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2) Run your executable with the CPUPROFILE environment var set:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ CPUPROFILE=/tmp/prof.out &lt;path/to/binary> [binary args]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>3) Run pprof to analyze the CPU usage</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ pprof &lt;path/to/binary> /tmp/prof.out      # -pg-like text output
+</span><span class='line'>     $ pprof --gv &lt;path/to/binary> /tmp/prof.out # really cool graphical output</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There are other environment variables, besides CPUPROFILE, you can set to adjust the cpu-profiler behavior; cf &ldquo;ENVIRONMENT VARIABLES&rdquo; below.</p>
+
+<p>The CPU profiler is available on all unix-based systems we&rsquo;ve tested; see INSTALL for more details.  It is not currently available on Windows.</p>
+
+<p>NOTE: CPU profiling doesn&rsquo;t work after fork (unless you immediately do an exec()-like call afterwards).  Furthermore, if you do fork, and the child calls exit(), it may corrupt the profile data.  You can use _exit() to work around this.  We hope to have a fix for both problems in the next release of perftools (hopefully perftools 1.2).</p>
+
+<p><a href="https://github.com/gperftools/gperftools" title="Title">Font: https://github.com/gperftools/gperftools</a></p>
+
+<hr />
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Eliza - First computer programs to process natural language.]]></title>
